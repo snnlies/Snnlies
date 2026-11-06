@@ -1,14 +1,19 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Instrument_Serif } from "next/font/google";
 import "./globals.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const serif = Instrument_Serif({ 
+  weight: "400", 
+  subsets: ["latin"], 
+  variable: "--font-serif" 
+});
 
 export const metadata: Metadata = {
-  title: "Snnlies | Premium AI Agent",
-  description: "The next generation of intelligent Discord automation.",
+  title: "Snnlies | The Future of Automation",
+  description: "Experience the pinnacle of Discord automation with raw AI power.",
 };
 
 export default function RootLayout({
@@ -18,9 +23,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-black text-white min-h-screen flex flex-col selection:bg-white selection:text-black`}>
+      <body className={`${inter.variable} ${serif.variable} font-sans bg-black text-white min-h-screen flex flex-col selection:bg-white selection:text-black`}>
         <Navbar />
-        {/* pt-20 ensures content doesn't hide behind fixed header */}
         <main className="flex-grow w-full pt-20">
           {children}
         </main>
