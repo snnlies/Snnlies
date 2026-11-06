@@ -26,7 +26,7 @@ export default function Navbar() {
     { name: "AI Workspace", href: "/chat" },
     { name: "Templates", href: "/templates" },
     { name: "Community", href: "/community" },
-    { name: "Dashboard", href: "/dashboard" },
+    { name: "Referral", href: "/referral" },
   ];
 
   return (
@@ -77,7 +77,6 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* Mobile Menu */}
       {isOpen && (
         <>
           <div className="fixed inset-0 z-40 bg-black/10 backdrop-blur-sm animate-in fade-in duration-[1000ms]" onClick={() => { playClickSound(); setIsOpen(false); }}></div>
