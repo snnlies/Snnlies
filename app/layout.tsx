@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
-import { Geist, Instrument_Serif } from "next/font/google";
+import { Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
-const geist = Geist({ subsets: ["latin"], variable: "--font-geist" });
-const serif = Instrument_Serif({ weight: "400", subsets: ["latin"], variable: "--font-serif" });
+const space = Space_Grotesk({ 
+  subsets: ["latin"], 
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-space" 
+});
 
 export const metadata: Metadata = {
   title: "Snnlies | The Future of Automation",
@@ -19,7 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="bg-black">
-      <body className={`${geist.variable} ${serif.variable} font-sans bg-black text-white min-h-screen flex flex-col selection:bg-white selection:text-black antialiased`}>
+      <body className={`${space.variable} font-sans bg-black text-white min-h-screen flex flex-col selection:bg-white selection:text-black antialiased`}>
         <Navbar />
         <main className="flex-grow w-full pt-24">
           {children}
