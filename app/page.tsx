@@ -26,7 +26,7 @@ export default function Home() {
         </ScrollReveal>
         <ScrollReveal delay={200}>
           <div className="flex gap-4 flex-col sm:flex-row w-full sm:w-auto">
-            <a href="/login" className="px-10 py-4 bg-white text-black font-semibold rounded-full hover:bg-neutral-200 transition-all duration-300 transform hover:scale-105 shadow-[0_0_20px_rgba(255,255,255,0.1)]">Get Started</a>
+            <a href="/signup" className="px-10 py-4 bg-white text-black font-semibold rounded-full hover:bg-neutral-200 transition-all duration-300 transform hover:scale-105 shadow-[0_0_20px_rgba(255,255,255,0.1)]">Sign Up</a>
             <a href="/features" className="px-10 py-4 border border-neutral-800 bg-black/50 text-white font-semibold rounded-full hover:bg-neutral-900 transition-all duration-300 transform hover:scale-105">Features</a>
           </div>
         </ScrollReveal>
@@ -74,7 +74,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 5. FAQs (Shortened) */}
+      {/* 5. FAQs */}
       <section className="w-full max-w-3xl mx-auto px-6 py-24 relative z-10">
         <ScrollReveal>
           <h2 className="text-3xl md:text-5xl font-bold mb-12 text-center tracking-tight">FAQs</h2>
@@ -93,18 +93,9 @@ export default function Home() {
           ))}
         </div>
       </section>
+      
+      {/* Final CTA Section REMOVED as requested */}
 
-      {/* 6. FINAL CTA */}
-      <section className="w-full max-w-5xl mx-auto px-6 pb-32 text-center relative z-10">
-        <ScrollReveal>
-          <div className="bg-gradient-to-b from-neutral-900 to-black border border-neutral-800 rounded-3xl p-12 md:p-20 shadow-2xl relative overflow-hidden group">
-            <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight text-white relative z-10">Get Started</h2>
-            <p className="text-neutral-400 mb-10 max-w-lg mx-auto font-light text-lg relative z-10">Join communities already using Snnlies.</p>
-            <a href="/login" className="relative z-10 inline-block px-12 py-5 bg-white text-black font-semibold rounded-full hover:bg-neutral-200 transition-all duration-300 transform hover:scale-105 shadow-[0_0_30px_rgba(255,255,255,0.15)]">Invite Bot</a>
-          </div>
-        </ScrollReveal>
-      </section>
     </div>
   );
 }
