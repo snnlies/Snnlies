@@ -31,16 +31,22 @@ export default function Home() {
       <section className="w-full max-w-3xl mx-auto px-4 pb-24 relative z-10">
         <div className="w-full flex flex-col bg-black/60 backdrop-blur-xl border border-neutral-800 rounded-3xl overflow-hidden shadow-2xl relative">
           
-          {/* Chat Header */}
+          {/* Chat Header with Glowing AI Avatar */}
           <div className="bg-neutral-900/80 px-6 py-4 border-b border-neutral-800 flex items-center justify-between">
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-4">
               <div className="relative">
-                <div className="w-10 h-10 rounded-full bg-white text-black flex items-center justify-center font-bold text-lg">S</div>
+                {/* Glowing AI Orb instead of 'S' */}
+                <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-neutral-800 via-neutral-900 to-black border border-neutral-700 flex items-center justify-center shadow-[0_0_15px_rgba(255,255,255,0.1)]">
+                  <span className="text-xl">✨</span>
+                </div>
                 <div className="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-black rounded-full"></div>
               </div>
               <div>
-                <h3 className="text-white font-semibold text-sm">Snnlies AI</h3>
-                <p className="text-neutral-500 text-xs">Always Online</p>
+                <h3 className="text-white font-semibold text-sm flex items-center gap-2">
+                  Snnlies AI 
+                  <span className="text-[10px] bg-neutral-800 text-neutral-300 px-2 py-0.5 rounded-full border border-neutral-700">Agent</span>
+                </h3>
+                <p className="text-neutral-500 text-xs">Feeling mischievous</p>
               </div>
             </div>
             <div className="text-xs font-medium text-neutral-500 bg-neutral-950 px-3 py-1 rounded-full border border-neutral-800">
@@ -52,24 +58,28 @@ export default function Home() {
           <div className="flex-grow p-6 space-y-6 h-[350px] overflow-hidden relative">
             {/* Message 1 */}
             <div className="flex justify-start">
-              <div className="w-8 h-8 rounded-full bg-white text-black flex items-center justify-center font-bold text-xs mr-3 shrink-0 mt-1">S</div>
+              <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-neutral-800 to-black border border-neutral-700 flex items-center justify-center mr-3 shrink-0 mt-1 shadow-sm">
+                <span className="text-sm">✨</span>
+              </div>
               <div className="px-5 py-3 rounded-2xl bg-neutral-900 border border-neutral-800 text-neutral-200 rounded-tl-sm text-sm max-w-[80%]">
-                Hello! I am Snnlies AI. I can help you manage your Discord server, generate ideas, or just have a conversation. How can I help you today?
+                Hello human! I am Snnlies AI. I can manage your Discord server, generate wild ideas, or just roast your friends. What are we doing today? 😉
               </div>
             </div>
 
             {/* Message 2 */}
             <div className="flex justify-end">
               <div className="px-5 py-3 rounded-2xl bg-white text-black font-medium rounded-tr-sm text-sm max-w-[80%]">
-                Can you help me set up auto-moderation and custom welcome messages?
+                Can you set up auto-mod and roast my friend for spamming?
               </div>
             </div>
 
             {/* Message 3 */}
             <div className="flex justify-start">
-              <div className="w-8 h-8 rounded-full bg-white text-black flex items-center justify-center font-bold text-xs mr-3 shrink-0 mt-1">S</div>
+              <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-neutral-800 to-black border border-neutral-700 flex items-center justify-center mr-3 shrink-0 mt-1 shadow-sm">
+                <span className="text-sm">✨</span>
+              </div>
               <div className="px-5 py-3 rounded-2xl bg-neutral-900 border border-neutral-800 text-neutral-200 rounded-tl-sm text-sm max-w-[80%]">
-                Absolutely! I can handle anti-spam, set up detailed logging, and even generate custom AI welcome images. Want to try it on your server?
+                Consider it done. I'm activating anti-spam and drafting a roast so brutal it might violate the Geneva Convention. Want to give me admin powers?
               </div>
             </div>
 
@@ -79,7 +89,7 @@ export default function Home() {
 
           {/* Chat Input Area (CTA Instead of Input) */}
           <div className="p-6 bg-neutral-950/90 border-t border-neutral-800 text-center relative z-20">
-            <p className="text-neutral-400 text-sm mb-4">Experience the full power of Snnlies AI on your server.</p>
+            <p className="text-neutral-400 text-sm mb-4">Experience the full, uncensored power of Snnlies AI on your server.</p>
             <a href="/login" className="inline-flex items-center justify-center w-full px-8 py-4 bg-white text-black font-bold rounded-full hover:bg-neutral-200 transition-all shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_30px_rgba(255,255,255,0.3)]">
               Login to Start Chatting
             </a>
