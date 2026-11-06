@@ -1,6 +1,5 @@
 import { NextResponse } from 'next/server';
-const TUNNEL_URL = 'https://f2161d4a0a4da5.lhr.life';
-
+const TUNNEL_URL = 'https://abdde55d581bfd.lhr.life';
 export async function GET(req: Request) {
   const { searchParams } = new URL(req.url);
   const endpoint = searchParams.get('endpoint');
@@ -12,15 +11,12 @@ export async function GET(req: Request) {
     return NextResponse.json(await response.json());
   } catch (error) { return NextResponse.json({ error: 'Failed' }, { status: 500 }); }
 }
-
 export async function POST(req: Request) {
   const { searchParams } = new URL(req.url);
   const endpoint = searchParams.get('endpoint');
   try {
     const body = await req.json();
-    const response = await fetch(`${TUNNEL_URL}${endpoint}`, {
-      method: 'POST', headers: { 'Content-Type': 'application/json', 'ngrok-skip-browser-warning': 'true' }, body: JSON.stringify(body)
-    });
+    const response = await fetch(`${TUNNEL_URL}${endpoint}`, { method: 'POST', headers: { 'Content-Type': 'application/json', 'ngrok-skip-browser-warning': 'true' }, body: JSON.stringify(body) });
     return NextResponse.json(await response.json());
   } catch (error) { return NextResponse.json({ error: 'Failed' }, { status: 500 }); }
 }
