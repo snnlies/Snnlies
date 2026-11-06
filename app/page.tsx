@@ -34,15 +34,15 @@ export default function Home() {
   const faqs = [
     { q: "What is Snnlies?", a: "Snnlies is a premium, AI-powered Discord bot designed to elevate your server with advanced automation, moderation, and Gemini AI integration." },
     { q: "Is it free to use?", a: "Yes! We offer a robust free tier. For advanced features like unlimited AI chats and custom branding, you can upgrade to our Premium plan." },
-    { q: "How do I setup the bot?", a: "Simply click 'Invite Bot', authorize it for your server, and you are ready to go. You can configure everything from this dashboard." },
+    { q: "How do I setup the bot?", a: "Simply click 'Invite Bot', authorize it for your server, and you are ready to go." },
     { q: "Does it support multiple languages?", a: "Absolutely. Snnlies AI can understand and respond in over 50 languages natively." },
   ];
 
   return (
     <div className="flex flex-col items-center w-full overflow-hidden">
       
-      {/* 1. HERO SECTION */}
-      <section className="w-full max-w-6xl mx-auto px-6 pt-16 pb-24 text-center flex flex-col items-center">
+      {/* 1. HERO SECTION (Starts immediately now) */}
+      <section className="w-full max-w-6xl mx-auto px-6 pb-24 text-center flex flex-col items-center">
         <div className="inline-block px-4 py-1.5 rounded-full border border-neutral-800 bg-neutral-950 text-xs font-semibold text-neutral-400 mb-6 tracking-wide uppercase">
           Powered by Google Gemini AI
         </div>
