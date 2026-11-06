@@ -3,6 +3,7 @@ import ScrollReveal from "../components/ScrollReveal";
 import Footer from "../components/Footer";
 import Link from "next/link";
 import { useState } from "react";
+import { playClickSound } from "../utils/sound";
 
 export default function Home() {
   const [faqOpen, setFaqOpen] = useState<number | null>(null);
@@ -30,13 +31,13 @@ export default function Home() {
           </p>
         </ScrollReveal>
         
-        {/* Slower Hover Buttons */}
+        {/* Buttons with Sound */}
         <ScrollReveal delay={600}>
           <div className="flex gap-4 flex-col sm:flex-row w-full sm:w-auto px-4 sm:px-0">
-            <Link href="/chat" className="px-8 py-4 bg-gradient-to-b from-blue-400 to-blue-500 text-white font-semibold rounded-full hover:scale-105 transition-all duration-700 ease-out shadow-[0_8px_20px_rgba(59,130,246,0.3)] text-center w-full sm:w-auto">
+            <Link href="/chat" onClick={playClickSound} className="px-8 py-4 bg-gradient-to-b from-blue-400 to-blue-500 text-white font-semibold rounded-full hover:scale-105 transition-all duration-700 ease-out shadow-[0_8px_20px_rgba(59,130,246,0.3)] text-center w-full sm:w-auto">
               Try AI Workspace
             </Link>
-            <Link href="/templates" className="px-8 py-4 bg-white border border-neutral-200 text-black font-semibold rounded-full hover:bg-neutral-50 hover:scale-105 transition-all duration-700 ease-out apple-shadow text-center w-full sm:w-auto">
+            <Link href="/templates" onClick={playClickSound} className="px-8 py-4 bg-white border border-neutral-200 text-black font-semibold rounded-full hover:bg-neutral-50 hover:scale-105 transition-all duration-700 ease-out apple-shadow text-center w-full sm:w-auto">
               View Templates
             </Link>
           </div>
@@ -58,7 +59,7 @@ export default function Home() {
         </ScrollReveal>
       </section>
 
-      {/* 3. FEATURES BENTO GRID (Slower Card Hovers) */}
+      {/* 3. FEATURES BENTO GRID */}
       <section className="w-full max-w-6xl mx-auto px-4 md:px-6 py-24 relative z-10 bg-white">
         <ScrollReveal>
           <div className="text-center mb-16">
@@ -118,7 +119,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 4. FAQ SECTION (Slower toggle) */}
+      {/* 4. FAQ SECTION */}
       <section className="w-full max-w-3xl mx-auto px-4 md:px-6 py-24 relative z-10 bg-white border-t border-neutral-100">
         <ScrollReveal>
           <h2 className="text-3xl md:text-5xl font-bold mb-12 text-center tracking-tight text-black">FAQs</h2>
@@ -127,7 +128,10 @@ export default function Home() {
           {faqs.map((faq, i) => (
             <ScrollReveal key={i} delay={i * 200}>
               <div className="border border-neutral-200 rounded-2xl bg-white overflow-hidden apple-shadow transition-shadow duration-700">
-                <button onClick={() => setFaqOpen(faqOpen === i ? null : i)} className="w-full px-6 md:px-8 py-5 md:py-6 text-left flex justify-between items-center hover:bg-neutral-50 transition-colors duration-500">
+                <button 
+                  onClick={() => { playClickSound(); setFaqOpen(faqOpen === i ? null : i); }} 
+                  className="w-full px-6 md:px-8 py-5 md:py-6 text-left flex justify-between items-center hover:bg-neutral-50 transition-colors duration-500"
+                >
                   <span className="font-bold text-black text-base md:text-lg">{faq.q}</span>
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2.5" stroke="currentColor" className={`w-5 h-5 text-black transition-transform duration-500 ease-out ${faqOpen === i ? "rotate-180" : ""}`}><path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" /></svg>
                 </button>
