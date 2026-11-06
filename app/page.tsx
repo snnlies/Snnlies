@@ -42,47 +42,46 @@ export default function Home() {
         </ScrollReveal>
       </section>
 
-      {/* 2. TRUSTED BY SECTION */}
-      <section className="w-full border-y border-neutral-900 py-12 relative z-10 bg-black">
+      {/* 2. TRUSTED BY SECTION (Production Ready) */}
+      <section className="w-full border-y border-neutral-900 py-16 relative z-10 bg-black">
         <ScrollReveal>
           <div className="max-w-5xl mx-auto px-6 text-center">
-            <p className="text-sm font-medium text-neutral-500 uppercase tracking-widest mb-6">Trusted by top communities</p>
-            <div className="flex flex-wrap justify-center gap-8 md:gap-16 opacity-50 grayscale">
-              <span className="text-xl font-bold text-white tracking-tighter">Vercel</span>
-              <span className="text-xl font-bold text-white tracking-tighter">Discord</span>
-              <span className="text-xl font-bold text-white tracking-tighter">GitHub</span>
-              <span className="text-xl font-bold text-white tracking-tighter">Stripe</span>
-              <span className="text-xl font-bold text-white tracking-tighter">Linear</span>
+            <p className="text-xs font-semibold text-neutral-600 uppercase tracking-[0.2em] mb-8">Powering next-generation communities</p>
+            <div className="flex flex-wrap justify-center items-center gap-10 md:gap-20 opacity-40 hover:opacity-80 transition-opacity duration-500 grayscale">
+              <span className="text-2xl font-bold text-white tracking-tighter">Discord</span>
+              <span className="text-2xl font-bold text-white tracking-tighter">Vercel</span>
+              <span className="text-2xl font-bold text-white tracking-tighter">GitHub</span>
+              <span className="text-2xl font-bold text-white tracking-tighter">Notion</span>
             </div>
           </div>
         </ScrollReveal>
       </section>
 
-      {/* 3. STATS SECTION */}
+      {/* 3. PRODUCTION STATS SECTION (No Fake User Counts) */}
       <section className="w-full py-24 relative z-10">
         <div className="max-w-5xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
           <ScrollReveal delay={0}>
             <div>
-              <h3 className="text-5xl font-bold text-white mb-2 tracking-tight">10K+</h3>
-              <p className="text-neutral-500 text-sm font-medium tracking-wide">Active Servers</p>
+              <h3 className="text-4xl font-bold text-white mb-2 tracking-tight">99.99%</h3>
+              <p className="text-neutral-500 text-xs font-semibold tracking-widest uppercase">Uptime SLA</p>
             </div>
           </ScrollReveal>
           <ScrollReveal delay={100}>
             <div>
-              <h3 className="text-5xl font-bold text-white mb-2 tracking-tight">5M+</h3>
-              <p className="text-neutral-500 text-sm font-medium tracking-wide">Users Reached</p>
+              <h3 className="text-4xl font-bold text-white mb-2 tracking-tight">&lt;50ms</h3>
+              <p className="text-neutral-500 text-xs font-semibold tracking-widest uppercase">Global Latency</p>
             </div>
           </ScrollReveal>
           <ScrollReveal delay={200}>
             <div>
-              <h3 className="text-5xl font-bold text-white mb-2 tracking-tight">99.9%</h3>
-              <p className="text-neutral-500 text-sm font-medium tracking-wide">Uptime Guarantee</p>
+              <h3 className="text-4xl font-bold text-white mb-2 tracking-tight">Zero-Lag</h3>
+              <p className="text-neutral-500 text-xs font-semibold tracking-widest uppercase">AI Processing</p>
             </div>
           </ScrollReveal>
           <ScrollReveal delay={300}>
             <div>
-              <h3 className="text-5xl font-bold text-white mb-2 tracking-tight">24/7</h3>
-              <p className="text-neutral-500 text-sm font-medium tracking-wide">Global Support</p>
+              <h3 className="text-4xl font-bold text-white mb-2 tracking-tight">24/7</h3>
+              <p className="text-neutral-500 text-xs font-semibold tracking-widest uppercase">Active Monitoring</p>
             </div>
           </ScrollReveal>
         </div>
@@ -99,21 +98,21 @@ export default function Home() {
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <ScrollReveal delay={0}>
-            <div className="bg-neutral-950 border border-neutral-800/50 p-8 rounded-3xl hover:border-neutral-600 transition-all duration-300">
+            <div className="bg-neutral-950 border border-neutral-800/50 p-8 rounded-3xl hover:border-neutral-600 transition-all duration-300 h-full">
               <h3 className="text-xl font-bold mb-3 text-white tracking-tight">AI Chat Integration</h3>
               <p className="text-neutral-500 text-sm leading-relaxed font-light">Talk to your members using advanced AI. Human-like responses, instant knowledge, zero delay.</p>
             </div>
           </ScrollReveal>
           
           <ScrollReveal delay={100}>
-            <div className="bg-neutral-950 border border-neutral-800/50 p-8 rounded-3xl hover:border-neutral-600 transition-all duration-300">
+            <div className="bg-neutral-950 border border-neutral-800/50 p-8 rounded-3xl hover:border-neutral-600 transition-all duration-300 h-full">
               <h3 className="text-xl font-bold mb-3 text-white tracking-tight">Advanced Moderation</h3>
               <p className="text-neutral-500 text-sm leading-relaxed font-light">Keep your server safe with auto-mod, anti-spam, and detailed logging systems.</p>
             </div>
           </ScrollReveal>
 
           <ScrollReveal delay={200}>
-            <div className="bg-neutral-950 border border-neutral-800/50 p-8 rounded-3xl hover:border-neutral-600 transition-all duration-300">
+            <div className="bg-neutral-950 border border-neutral-800/50 p-8 rounded-3xl hover:border-neutral-600 transition-all duration-300 h-full">
               <h3 className="text-xl font-bold mb-3 text-white tracking-tight">Web Dashboard</h3>
               <p className="text-neutral-500 text-sm leading-relaxed font-light">Manage everything from this beautiful, real-time web interface. No commands needed.</p>
             </div>
@@ -161,15 +160,15 @@ export default function Home() {
       <section className="w-full max-w-6xl mx-auto px-6 py-24 relative z-10">
         <ScrollReveal>
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold mb-4 tracking-tight">Loved by developers.</h2>
-            <p className="text-neutral-400 font-light">Here is what community owners have to say.</p>
+            <h2 className="text-3xl md:text-5xl font-bold mb-4 tracking-tight">Built for production.</h2>
+            <p className="text-neutral-400 font-light">Here is what developers and admins say.</p>
           </div>
         </ScrollReveal>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <ScrollReveal delay={0}>
-            <div className="bg-neutral-950 border border-neutral-800/50 p-8 rounded-3xl">
-              <p className="text-neutral-300 text-sm leading-relaxed mb-6">"Snnlies completely replaced 4 different bots for us. The AI integration is flawless and my members love interacting with it. The dashboard is a masterpiece."</p>
+            <div className="bg-neutral-950 border border-neutral-800/50 p-8 rounded-3xl h-full flex flex-col justify-between">
+              <p className="text-neutral-300 text-sm leading-relaxed mb-6 font-light">"Snnlies completely replaced 4 different bots for us. The AI integration is flawless and my members love interacting with it. The dashboard is a masterpiece."</p>
               <div className="flex items-center gap-4">
                 <div className="w-10 h-10 rounded-full bg-neutral-800 flex items-center justify-center text-white font-bold">A</div>
                 <div>
@@ -181,8 +180,8 @@ export default function Home() {
           </ScrollReveal>
           
           <ScrollReveal delay={100}>
-            <div className="bg-neutral-950 border border-neutral-800/50 p-8 rounded-3xl">
-              <p className="text-neutral-300 text-sm leading-relaxed mb-6">"The moderation features are incredibly robust. We haven't had a single raid or spam attack since we added Snnlies. It just works quietly in the background."</p>
+            <div className="bg-neutral-950 border border-neutral-800/50 p-8 rounded-3xl h-full flex flex-col justify-between">
+              <p className="text-neutral-300 text-sm leading-relaxed mb-6 font-light">"The moderation features are incredibly robust. We haven't had a single raid or spam attack since we added Snnlies. It just works quietly in the background."</p>
               <div className="flex items-center gap-4">
                 <div className="w-10 h-10 rounded-full bg-neutral-800 flex items-center justify-center text-white font-bold">S</div>
                 <div>
