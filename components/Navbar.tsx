@@ -15,34 +15,34 @@ export default function Navbar() {
   return (
     <>
       <nav className="fixed top-6 left-0 w-full z-50 flex justify-center px-4">
-        <div className="bg-white/90 backdrop-blur-xl border border-neutral-200 rounded-full px-8 py-3.5 flex justify-between items-center w-full max-w-5xl apple-shadow">
+        <div className="bg-white/90 backdrop-blur-xl border border-neutral-200 rounded-full px-8 py-3.5 flex justify-between items-center w-full max-w-5xl apple-shadow transition-shadow duration-500">
           <Link href="/" className="text-xl font-bold tracking-tight text-black">Snnlies</Link>
           
           <div className="hidden md:flex items-center gap-8 text-sm font-semibold text-black">
             {navLinks.map((link) => (
               <Link key={link.name} href={link.href} className="relative group py-2">
                 {link.name}
-                {/* Matching Line Effect */}
-                <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-black transition-all duration-300 group-hover:w-full"></span>
+                {/* Slower underline effect (duration-700) */}
+                <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-black transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:w-full"></span>
               </Link>
             ))}
-            {/* Dropdown for Resources */}
             <div className="relative group py-2">
               <button className="flex items-center gap-1 cursor-pointer">
                 Resources
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-4 h-4 group-hover:rotate-180 transition-transform duration-300"><path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" /></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-4 h-4 group-hover:rotate-180 transition-transform duration-500 ease-out"><path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" /></svg>
               </button>
-              <div className="absolute top-full left-0 w-40 bg-white border border-neutral-200 rounded-xl p-2 shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 translate-y-2 group-hover:translate-y-0">
-                <Link href="/news" className="block px-4 py-2 text-black hover:bg-neutral-50 rounded-lg">News</Link>
-                <Link href="/updates" className="block px-4 py-2 text-black hover:bg-neutral-50 rounded-lg">Updates</Link>
-                <Link href="/status" className="block px-4 py-2 text-black hover:bg-neutral-50 rounded-lg">Status</Link>
+              {/* Slower dropdown */}
+              <div className="absolute top-full left-0 w-40 bg-white border border-neutral-200 rounded-xl p-2 shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-500 ease-out translate-y-4 group-hover:translate-y-0">
+                <Link href="/news" className="block px-4 py-2 text-black hover:bg-neutral-50 rounded-lg transition-colors duration-300">News</Link>
+                <Link href="/updates" className="block px-4 py-2 text-black hover:bg-neutral-50 rounded-lg transition-colors duration-300">Updates</Link>
+                <Link href="/status" className="block px-4 py-2 text-black hover:bg-neutral-50 rounded-lg transition-colors duration-300">Status</Link>
               </div>
             </div>
           </div>
 
           <div className="hidden md:flex items-center gap-4">
-            <Link href="/login" className="text-sm font-semibold text-neutral-500 hover:text-black transition-colors">Sign in</Link>
-            <Link href="/signup" className="px-6 py-2.5 bg-black text-white text-sm font-semibold rounded-full hover:bg-neutral-800 transition-colors shadow-md">Get Started</Link>
+            <Link href="/login" className="text-sm font-semibold text-neutral-500 hover:text-black transition-colors duration-500">Sign in</Link>
+            <Link href="/signup" className="px-6 py-2.5 bg-black text-white text-sm font-semibold rounded-full hover:bg-neutral-800 hover:scale-105 transition-all duration-500 shadow-md">Get Started</Link>
           </div>
 
           <button onClick={() => setIsOpen(true)} className="md:hidden p-2 text-black">
@@ -51,9 +51,9 @@ export default function Navbar() {
         </div>
       </nav>
       
-      {/* Mobile Menu */}
+      {/* Mobile Menu (Slower fade in) */}
       {isOpen && (
-        <div className="fixed inset-0 z-[60] bg-white flex flex-col animate-in fade-in duration-300">
+        <div className="fixed inset-0 z-[60] bg-white flex flex-col animate-in fade-in duration-500">
           <div className="w-full px-6 h-16 flex justify-between items-center shrink-0 border-b border-neutral-200">
             <Link href="/" className="text-xl font-bold text-black" onClick={() => setIsOpen(false)}>Snnlies</Link>
             <button onClick={() => setIsOpen(false)} className="p-2 text-black">
