@@ -4,13 +4,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://snnlies.vercel.app'
   
   const routes = [
-    '', '/chat', '/templates', '/community', '/referral', 
-    '/dashboard', '/status', '/blog', '/news', '/updates', '/privacy', '/terms', '/support'
+    { url: '', priority: 1.0 },
+    { url: '/chat', priority: 1.0 },
+    { url: '/templates', priority: 1.0 },
+    { url: '/community', priority: 0.9 },
+    { url: '/referral', priority: 0.9 },
+    { url: '/dashboard', priority: 0.8 },
+    { url: '/status', priority: 0.7 },
+    { url: '/blog', priority: 0.8 },
   ].map((route) => ({
-    url: `${baseUrl}${route}`,
-    lastModified: new Date().toISOString().split('T')[0],
-    changeFrequency: 'weekly' as const,
-    priority: route === '' ? 1 : 0.8,
+    url: `${baseUrl}${route.url}`,
+    lastModified: new Date().toISOString(),
+    changeFrequency: 'always' as const, // 1000% Hack: Tells bots to crawl every day
+    priority: route.priority,
   }))
 
   return [...routes]

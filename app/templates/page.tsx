@@ -88,8 +88,8 @@ export default function Templates() {
   return (
     <div className="w-full max-w-7xl mx-auto px-4 md:px-6 py-12 relative z-10 bg-white min-h-screen">
       <div className="text-center mb-12">
-        <h1 className="text-4xl md:text-5xl font-bold text-black mb-4 tracking-tight">Mega Templates</h1>
-        <p className="text-black text-base md:text-lg font-medium">Review the structure, then deploy instantly.</p>
+        <h1 className="text-4xl md:text-5xl font-bold text-black mb-4 tracking-tight">Mega Discord Server Templates</h1>
+        <p className="text-black text-base md:text-lg font-medium">Review the structure, then deploy your AI Discord server instantly.</p>
       </div>
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-start">
