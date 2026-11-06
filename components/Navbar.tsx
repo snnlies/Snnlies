@@ -17,6 +17,7 @@ export default function Navbar() {
           <div className="hidden md:flex items-center gap-8 text-sm font-medium text-white">
             <Link href="/features" className="hover:text-neutral-400 transition-colors">Features</Link>
             <Link href="/templates" className="hover:text-neutral-400 transition-colors">Templates</Link>
+            <Link href="/chat" className="hover:text-neutral-400 transition-colors">AI Workspace</Link>
             <Link href="/status" className="hover:text-neutral-400 transition-colors">Status</Link>
           </div>
 
@@ -39,8 +40,8 @@ export default function Navbar() {
 
       {isOpen && (
         <div className="fixed inset-0 z-[60] bg-black flex flex-col animate-in fade-in duration-300">
-          <div className="w-full px-6 h-20 flex justify-between items-center shrink-0 border-b border-neutral-900">
-            <Link href="/" className="text-2xl font-bold text-white" onClick={() => setIsOpen(false)}>Snnlies</Link>
+          <div className="w-full px-6 h-16 flex justify-between items-center shrink-0 border-b border-neutral-900">
+            <Link href="/" className="text-xl font-bold text-white" onClick={() => setIsOpen(false)}>Snnlies</Link>
             <button onClick={() => setIsOpen(false)} className="p-2 text-white">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2.5" stroke="currentColor" className="w-6 h-6">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
@@ -50,6 +51,7 @@ export default function Navbar() {
           <div className="flex-grow px-6 py-8 flex flex-col gap-6 overflow-y-auto">
             <Link href="/features" onClick={() => setIsOpen(false)} className="text-3xl font-medium text-white">Features</Link>
             <Link href="/templates" onClick={() => setIsOpen(false)} className="text-3xl font-medium text-white">Templates</Link>
+            <Link href="/chat" onClick={() => setIsOpen(false)} className="text-3xl font-medium text-white">AI Workspace</Link>
             <Link href="/status" onClick={() => setIsOpen(false)} className="text-3xl font-medium text-white">Status</Link>
           </div>
           <div className="p-6 flex flex-col gap-4 pb-12 border-t border-neutral-900">
