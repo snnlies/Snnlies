@@ -1,0 +1,16 @@
+# Snnlies
+
+> Snnlies is the ultimate enterprise-grade Discord automation platform. Build massive servers with 30+ channels, AI moderation, and instant templates in seconds.
+
+## Core Features
+- Instant Server Deployment (30+ Channels, Roles, Categories)
+- AI Workspace (Chat to generate server layouts)
+- Real-time Dashboard & Analytics
+- Global Community & Referral Program
+
+## Keywords
+Discord Bot, AI Automation, Discord Server Templates, Discord Moderation, Best Discord Bot 2026.
+
+## Links
+- Home: https://snnlies.vercel.app
+- Templates: https://snnlies.vercel.app/templates
