@@ -5,13 +5,14 @@ export default function Templates() {
   const [loading, setLoading] = useState<string | null>(null);
 
   const templates = [
-    { id: "1", name: "Gaming", desc: "LFG channels and tournament brackets." },
-    { id: "2", name: "Community", desc: "Welcome gates and auto-moderation." },
+    { id: "1", name: "Mega Gaming", desc: "30+ Channels, 5 Roles. Tournament brackets, LFG, voice rooms.", tag: "Mega Structure" },
+    { id: "2", name: "Enterprise Community", desc: "25+ Channels, 5 Roles. Onboarding gates, AI auto-moderation.", tag: "Premium" },
+    { id: "3", name: "Developer Hub", desc: "20+ Channels. GitHub feeds, code help, pair programming.", tag: "Tech" },
   ];
 
   const handleDeploy = async (templateName: string) => {
     setLoading(templateName);
-    // Your Real Discord Server ID
+    // REAL DISCORD SERVER ID
     const guildId = "1568291865621430282"; 
 
     try {
@@ -31,21 +32,29 @@ export default function Templates() {
 
   return (
     <div className="w-full max-w-6xl mx-auto px-6 py-16 relative z-10">
-      <h1 className="text-4xl font-bold text-white mb-12 text-center">Production Templates</h1>
+      <div className="text-center mb-12">
+        <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Mega Templates</h1>
+        <p className="text-white/60 text-lg">Deploy massive, fully-structured servers in seconds.</p>
+      </div>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {templates.map((tpl) => (
-          <div key={tpl.id} className="bg-black border border-neutral-800 p-8 rounded-3xl flex flex-col justify-between">
+          <div key={tpl.id} className="bg-neutral-950 border border-neutral-800 p-8 rounded-3xl flex flex-col justify-between hover:border-white transition-colors group">
             <div>
-              <h3 className="text-xl font-bold text-white mb-2">{tpl.name}</h3>
-              <p className="text-white/60 text-sm mb-6">{tpl.desc}</p>
+              <div className="flex justify-between items-start mb-4">
+                <span className="text-xs font-bold text-black bg-white px-3 py-1 rounded-full uppercase tracking-wide">
+                  {tpl.tag}
+                </span>
+              </div>
+              <h3 className="text-2xl font-bold text-white mb-3">{tpl.name}</h3>
+              <p className="text-white/60 text-sm leading-relaxed mb-8">{tpl.desc}</p>
             </div>
             <button 
               onClick={() => handleDeploy(tpl.name)}
               disabled={loading === tpl.name}
-              className="w-full py-3 bg-white text-black font-semibold rounded-full hover:bg-neutral-200 disabled:opacity-50"
+              className="w-full py-3.5 bg-white text-black font-semibold rounded-full hover:bg-neutral-200 disabled:opacity-50 transition-all"
             >
-              {loading === tpl.name ? "Deploying..." : "Deploy Template"}
+              {loading === tpl.name ? "Deploying Mega Structure..." : "Deploy Template"}
             </button>
           </div>
         ))}
