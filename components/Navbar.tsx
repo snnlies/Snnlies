@@ -11,7 +11,6 @@ export default function Navbar() {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      // Hide on scroll down, show on scroll up
       if (currentScrollY > lastScrollY && currentScrollY > 100) {
         setShowNavbar(false);
       } else {
@@ -19,7 +18,6 @@ export default function Navbar() {
       }
       setLastScrollY(currentScrollY);
     };
-
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
@@ -27,8 +25,8 @@ export default function Navbar() {
   const navLinks = [
     { name: "AI Workspace", href: "/chat" },
     { name: "Templates", href: "/templates" },
+    { name: "Community", href: "/community" },
     { name: "Dashboard", href: "/dashboard" },
-    { name: "Blog", href: "/blog" },
   ];
 
   return (
@@ -41,7 +39,7 @@ export default function Navbar() {
         <div className="bg-white/90 backdrop-blur-xl border border-neutral-200 rounded-full px-6 md:px-8 py-3.5 flex justify-between items-center w-full max-w-5xl apple-shadow relative z-50">
           <Link href="/" onClick={playClickSound} className="text-xl font-bold tracking-tight text-black hover:opacity-70 transition-opacity duration-[1000ms]">Snnlies</Link>
           
-          <div className="hidden md:flex items-center gap-8 text-sm font-semibold text-black">
+          <div className="hidden md:flex items-center gap-6 text-sm font-semibold text-black">
             {navLinks.map((link) => (
               <Link key={link.name} href={link.href} onClick={playClickSound} className="relative group py-2">
                 {link.name}
@@ -54,7 +52,6 @@ export default function Navbar() {
                 Resources
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-4 h-4 group-hover:rotate-180 transition-transform duration-[1500ms]"><path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" /></svg>
               </button>
-              
               <div className="absolute top-full left-1/2 -translate-x-1/2 w-48 pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-[1000ms] origin-top scale-90 group-hover:scale-100">
                 <div className="bg-white border border-neutral-200 rounded-2xl p-2 shadow-xl">
                   <Link href="/news" onClick={playClickSound} className="block px-4 py-3 text-black hover:bg-neutral-50 rounded-xl transition-colors duration-500">News</Link>
@@ -80,7 +77,7 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* Mobile Popup Menu */}
+      {/* Mobile Menu */}
       {isOpen && (
         <>
           <div className="fixed inset-0 z-40 bg-black/10 backdrop-blur-sm animate-in fade-in duration-[1000ms]" onClick={() => { playClickSound(); setIsOpen(false); }}></div>
