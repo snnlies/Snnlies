@@ -4,6 +4,7 @@ import Link from "next/link";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [dropdown, setDropdown] = useState(false);
 
   return (
     <>
@@ -11,11 +12,29 @@ export default function Navbar() {
         <div className="bg-black/80 backdrop-blur-xl border border-neutral-800 rounded-full px-6 py-3 flex justify-between items-center w-full max-w-5xl shadow-2xl">
           <Link href="/" className="text-xl font-bold tracking-tight text-white">Snnlies</Link>
           
-          <div className="hidden md:flex items-center gap-6 text-sm font-medium text-white">
+          <div className="hidden md:flex items-center gap-8 text-sm font-medium text-white">
             <Link href="/chat" className="hover:text-neutral-400 transition-colors">AI Workspace</Link>
             <Link href="/templates" className="hover:text-neutral-400 transition-colors">Templates</Link>
-            <Link href="/dashboard" className="hover:text-neutral-400 transition-colors">Dashboard</Link>
-            <Link href="/status" className="hover:text-neutral-400 transition-colors">Status</Link>
+            
+            {/* Resources Dropdown */}
+            <div 
+              className="relative py-2"
+              onMouseEnter={() => setDropdown(true)}
+              onMouseLeave={() => setDropdown(false)}
+            >
+              <button className="flex items-center gap-1 hover:text-neutral-400 transition-colors">
+                Resources
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-4 h-4"><path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" /></svg>
+              </button>
+              {dropdown && (
+                <div className="absolute top-full left-0 w-48 bg-black border border-neutral-800 rounded-xl p-2 shadow-2xl animate-in fade-in slide-in-from-top-2">
+                  <Link href="/blog" className="block px-4 py-2 text-white hover:bg-neutral-900 rounded-lg">Blog</Link>
+                  <Link href="/news" className="block px-4 py-2 text-white hover:bg-neutral-900 rounded-lg">News</Link>
+                  <Link href="/updates" className="block px-4 py-2 text-white hover:bg-neutral-900 rounded-lg">Updates</Link>
+                  <Link href="/status" className="block px-4 py-2 text-white hover:bg-neutral-900 rounded-lg">Status</Link>
+                </div>
+              )}
+            </div>
           </div>
 
           <div className="hidden md:flex items-center gap-4">
@@ -29,6 +48,7 @@ export default function Navbar() {
         </div>
       </nav>
 
+      {/* Mobile Menu */}
       {isOpen && (
         <div className="fixed inset-0 z-[60] bg-black flex flex-col animate-in fade-in duration-300">
           <div className="w-full px-6 h-16 flex justify-between items-center shrink-0 border-b border-neutral-900">
@@ -40,8 +60,9 @@ export default function Navbar() {
           <div className="flex-grow px-6 py-8 flex flex-col gap-6 overflow-y-auto">
             <Link href="/chat" onClick={() => setIsOpen(false)} className="text-3xl font-medium text-white">AI Workspace</Link>
             <Link href="/templates" onClick={() => setIsOpen(false)} className="text-3xl font-medium text-white">Templates</Link>
-            <Link href="/dashboard" onClick={() => setIsOpen(false)} className="text-3xl font-medium text-white">Dashboard</Link>
-            <Link href="/status" onClick={() => setIsOpen(false)} className="text-3xl font-medium text-white">Status</Link>
+            <Link href="/blog" onClick={() => setIsOpen(false)} className="text-3xl font-medium text-white">Blog</Link>
+            <Link href="/news" onClick={() => setIsOpen(false)} className="text-3xl font-medium text-white">News</Link>
+            <Link href="/updates" onClick={() => setIsOpen(false)} className="text-3xl font-medium text-white">Updates</Link>
           </div>
           <div className="p-6 flex flex-col gap-4 pb-12 border-t border-neutral-900">
             <Link href="/login" onClick={() => setIsOpen(false)} className="w-full text-center py-3 bg-neutral-900 text-white font-medium rounded-full">Sign in</Link>
