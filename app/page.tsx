@@ -1,13 +1,14 @@
 "use client";
 import ScrollReveal from "../components/ScrollReveal";
+import Footer from "../components/Footer";
 import Link from "next/link";
 
 export default function Home() {
   return (
     <div className="flex flex-col items-center w-full overflow-hidden relative bg-black">
-      <section className="w-full max-w-6xl mx-auto px-6 pt-24 pb-32 text-center flex flex-col items-center relative z-10 min-h-[85vh] justify-center">
+      <section className="w-full max-w-6xl mx-auto px-6 py-24 text-center flex flex-col items-center relative z-10 min-h-[80vh] justify-center">
         <ScrollReveal>
-          <h1 className="text-6xl sm:text-8xl md:text-[7rem] font-bold leading-[0.9] tracking-tighter text-white mb-8">
+          <h1 className="text-5xl sm:text-7xl md:text-8xl font-bold leading-[0.95] tracking-tighter text-white mb-8">
             INFRASTRUCTURE <br /><span className="text-white">FOR DISCORD.</span>
           </h1>
         </ScrollReveal>
@@ -27,6 +28,9 @@ export default function Home() {
           </div>
         </ScrollReveal>
       </section>
+      
+      {/* Footer shows only on home page */}
+      <Footer />
     </div>
   );
 }
