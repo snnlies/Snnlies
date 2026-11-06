@@ -13,7 +13,9 @@ export default function Navbar() {
 
   useEffect(() => {
     setMounted(true);
-    setIsLoggedIn(document.cookie.includes('snnlies_session'));
+    if (typeof document !== 'undefined') {
+      setIsLoggedIn(document.cookie.includes('snnlies_session'));
+    }
   }, []);
 
   const handleLogout = () => {
@@ -33,18 +35,18 @@ export default function Navbar() {
           <Link href="/" onClick={playClickSound} className="text-xl font-bold tracking-tight text-black">Snnlies</Link>
           
           <div className="hidden lg:flex items-center gap-6 text-sm font-semibold text-black">
-            <Link href="/chat" onClick={playClickSound} className="hover:text-neutral-500">AI Workspace</Link>
-            <Link href="/templates" onClick={playClickSound} className="hover:text-neutral-500">Templates</Link>
-            <Link href="/community" onClick={playClickSound} className="hover:text-neutral-500">Community</Link>
+            <Link href="/chat" onClick={playClickSound} className="hover:text-neutral-500 transition-colors">AI Workspace</Link>
+            <Link href="/templates" onClick={playClickSound} className="hover:text-neutral-500 transition-colors">Templates</Link>
+            <Link href="/community" onClick={playClickSound} className="hover:text-neutral-500 transition-colors">Community</Link>
 
             <div className="relative py-2" onMouseEnter={() => setDropdown(true)} onMouseLeave={() => setDropdown(false)}>
-              <button onClick={playClickSound} className="flex items-center gap-1 hover:text-neutral-500">
+              <button onClick={playClickSound} className="flex items-center gap-1 hover:text-neutral-500 transition-colors">
                 Resources
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-3.5 h-3.5"><path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" /></svg>
               </button>
               {dropdown && (
                 <div className="absolute top-full left-1/2 -translate-x-1/2 w-48 pt-4 animate-in fade-in duration-300">
-                  <div className="bg-white border border-neutral-200 rounded-2xl p-2 shadow-xl">
+                  <div className="bg-white border border-neutral-200 rounded-2xl p-2 shadow-xl flex flex-col">
                     <Link href="/updates" onClick={playClickSound} className="block px-4 py-2 text-black hover:bg-neutral-50 rounded-xl">Updates</Link>
                     <Link href="/news" onClick={playClickSound} className="block px-4 py-2 text-black hover:bg-neutral-50 rounded-xl">News</Link>
                     <Link href="/status" onClick={playClickSound} className="block px-4 py-2 text-black hover:bg-neutral-50 rounded-xl">Status</Link>
@@ -64,11 +66,7 @@ export default function Navbar() {
           </div>
 
           <button onClick={() => { playClickSound(); setIsOpen(!isOpen); }} className="lg:hidden p-2 text-black">
-            {isOpen ? (
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2.5" stroke="currentColor" className="w-6 h-6"><path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
-            ) : (
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2.5" stroke="currentColor" className="w-6 h-6"><path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" /></svg>
-            )}
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2.5" stroke="currentColor" className="w-6 h-6"><path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" /></svg>
           </button>
         </div>
       </nav>
