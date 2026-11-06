@@ -27,21 +27,27 @@ export const metadata: Metadata = {
   verification: { google: "googlef3d8874ae27da2e5" },
   alternates: { canonical: '/' },
   manifest: '/manifest.json',
+  
+  // OPENGRAPH (Discord, Facebook, LinkedIn)
   openGraph: {
-    title: "Snnlies® | The #1 Best Discord Automation",
-    description: "Deploy massive Discord server structures in seconds with AI.",
+    title: "Snnlies® | #1 Discord Automation",
+    description: "Deploy massive Discord server structures in seconds with AI. Join the top communities using Snnlies.",
     url: "https://snnlies.vercel.app",
     siteName: "Snnlies®", 
     locale: "en_US",
     type: "website",
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Snnlies® Bot" }],
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Snnlies Dashboard" }],
   },
+  
+  // TWITTER / X
   twitter: {
     card: "summary_large_image",
-    title: "Snnlies®",
+    title: "Snnlies® | #1 Discord Automation",
     description: "Build your dream Discord server with AI in seconds.",
     creator: "@sabinebyy",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Snnlies Dashboard" }],
   },
+  
   robots: {
     index: true,
     follow: true,
@@ -66,12 +72,9 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         "@id": "https://snnlies.vercel.app/#organization",
         "name": "Snnlies®",
         "url": "https://snnlies.vercel.app",
-        "logo": { "@type": "ImageObject", "url": "https://snnlies.vercel.app/icon-512x512.png" },
+        "logo": { "@type": "ImageObject", "url": "https://snnlies.vercel.app/icon.svg" },
         "founder": { "@type": "Person", "name": "Sabine" },
-        "sameAs": [
-          "https://discord.gg/9FP3afu4eb",
-          "https://x.com/sabinebyy"
-        ]
+        "sameAs": ["https://discord.gg/9FP3afu4eb", "https://x.com/sabinebyy"]
       },
       {
         "@type": "SoftwareApplication",
