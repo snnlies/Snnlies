@@ -1,14 +1,29 @@
 "use client";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
 export default function Home() {
-  const [messages, setMessages] = useState<{ role: string; content: string }[]>([]);
+  // Pre-existing messages so it feels like a real chat
+  const [messages, setMessages] = useState<{ role: string; content: string }[]>([
+    { role: "ai", content: "Hello! I am Snnlies AI. I can help you manage your Discord server, generate ideas, or just have a conversation. How can I help you today?" }
+  ]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const [faqOpen, setFaqOpen] = useState<number | null>(null);
+  
+  const chatEndRef = useRef<HTMLDivElement>(null);
+
+  // Auto-scroll to bottom when new messages arrive
+  useEffect(() => {
+    chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages]);
+
+  // Limit logic: Max 3 user messages
+  const userMessageCount = messages.filter(m => m.role === "user").length;
+  const isLimitReached = userMessageCount >= 3;
 
   const sendMessage = async () => {
-    if (!input.trim()) return;
+    if (!input.trim() || loading || isLimitReached) return;
+    
     const userMessage = { role: "user", content: input };
     setMessages((prev) => [...prev, userMessage]);
     setInput("");
@@ -21,11 +36,12 @@ export default function Home() {
         body: JSON.stringify({ message: input }),
       });
       const data = await res.json();
+      
       if (data.reply) {
         setMessages((prev) => [...prev, { role: "ai", content: data.reply }]);
       }
     } catch (error) {
-      console.error(error);
+      setMessages((prev) => [...prev, { role: "ai", content: "Sorry, I am having trouble connecting right now." }]);
     } finally {
       setLoading(false);
     }
@@ -41,65 +57,104 @@ export default function Home() {
   return (
     <div className="flex flex-col items-center w-full overflow-hidden relative">
       
-      {/* Subtle Professional Grid Background */}
+      {/* Background Grid */}
       <div className="absolute inset-0 z-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
 
       {/* 1. HERO SECTION */}
-      <section className="w-full max-w-6xl mx-auto px-6 pb-24 text-center flex flex-col items-center relative z-10 pt-10">
-        <h1 className="text-6xl md:text-8xl font-bold mb-6 tracking-tight text-white">
+      <section className="w-full max-w-6xl mx-auto px-6 pb-12 text-center flex flex-col items-center relative z-10 pt-10">
+        <h1 className="text-6xl md:text-8xl font-bold mb-6 tracking-tight text-white drop-shadow-sm">
           Snnlies
         </h1>
-        
         <p className="text-neutral-400 text-lg md:text-xl max-w-2xl mb-10 leading-relaxed font-light">
-          Elevate your Discord server with unmatched moderation, extreme customizability, and raw AI power — all in one minimalist platform.
+          Elevate your Discord server with unmatched moderation, extreme customizability, and raw AI power.
         </p>
-        
-        <div className="flex gap-4 flex-col sm:flex-row w-full sm:w-auto">
-          <a href="/login" className="px-8 py-4 bg-white text-black font-semibold rounded-full hover:bg-neutral-200 transition-all shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_30px_rgba(255,255,255,0.3)]">
-            Get Started
-          </a>
-          <a href="/features" className="px-8 py-4 border border-neutral-800 bg-black/50 backdrop-blur-sm text-white font-semibold rounded-full hover:bg-neutral-900 transition-all">
-            Explore Features
-          </a>
-        </div>
       </section>
 
       {/* 2. AI CHAT DEMO SECTION */}
-      <section className="w-full max-w-3xl mx-auto px-6 pb-24 relative z-10">
-        <div className="text-center mb-8">
-          <h2 className="text-2xl font-semibold mb-2 text-white">Test the Intelligence</h2>
-          <p className="text-neutral-500 text-sm">Experience the power of Snnlies AI directly in your browser.</p>
-        </div>
-        <div className="w-full flex flex-col bg-black/60 backdrop-blur-lg border border-neutral-800/80 rounded-3xl p-4 shadow-2xl">
-          <div className="flex-grow overflow-y-auto mb-4 space-y-4 max-h-[30vh] min-h-[200px]">
-            {messages.length === 0 && (
-              <p className="text-neutral-600 text-sm my-16 text-center italic">"How can I help you today?"</p>
-            )}
+      <section className="w-full max-w-3xl mx-auto px-4 pb-24 relative z-10">
+        <div className="w-full flex flex-col bg-black/60 backdrop-blur-xl border border-neutral-800 rounded-3xl overflow-hidden shadow-2xl">
+          
+          {/* Chat Header */}
+          <div className="bg-neutral-900/80 px-6 py-4 border-b border-neutral-800 flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <div className="relative">
+                <div className="w-10 h-10 rounded-full bg-white text-black flex items-center justify-center font-bold text-lg">S</div>
+                <div className="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-black rounded-full"></div>
+              </div>
+              <div>
+                <h3 className="text-white font-semibold text-sm">Snnlies AI</h3>
+                <p className="text-neutral-500 text-xs">Online & Ready</p>
+              </div>
+            </div>
+            <div className="text-xs font-medium text-neutral-500 bg-neutral-950 px-3 py-1 rounded-full border border-neutral-800">
+              Free Trial
+            </div>
+          </div>
+
+          {/* Chat Messages Area */}
+          <div className="flex-grow overflow-y-auto p-6 space-y-6 h-[350px] scroll-smooth">
             {messages.map((msg, i) => (
               <div key={i} className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}>
-                <div className={`px-5 py-3 rounded-2xl max-w-[85%] text-sm text-left ${
-                  msg.role === "user" ? "bg-white text-black font-medium" : "bg-neutral-900 border border-neutral-800 text-neutral-200"
+                {msg.role === "ai" && (
+                  <div className="w-8 h-8 rounded-full bg-white text-black flex items-center justify-center font-bold text-xs mr-3 shrink-0 mt-1">S</div>
+                )}
+                <div className={`px-5 py-3 rounded-2xl max-w-[80%] text-sm leading-relaxed ${
+                  msg.role === "user" 
+                    ? "bg-white text-black rounded-tr-sm" 
+                    : "bg-neutral-900 border border-neutral-800 text-neutral-200 rounded-tl-sm"
                 }`}>
                   {msg.content}
                 </div>
               </div>
             ))}
+            
             {loading && (
-              <div className="flex justify-start">
-                <div className="px-5 py-3 rounded-2xl bg-neutral-900 border border-neutral-800 text-neutral-400 text-sm animate-pulse">Snnlies is thinking...</div>
+              <div className="flex justify-start items-end">
+                <div className="w-8 h-8 rounded-full bg-white text-black flex items-center justify-center font-bold text-xs mr-3 shrink-0">S</div>
+                <div className="px-5 py-4 rounded-2xl bg-neutral-900 border border-neutral-800 rounded-tl-sm flex gap-1">
+                  <span className="w-2 h-2 bg-neutral-500 rounded-full animate-bounce"></span>
+                  <span className="w-2 h-2 bg-neutral-500 rounded-full animate-bounce delay-100"></span>
+                  <span className="w-2 h-2 bg-neutral-500 rounded-full animate-bounce delay-200"></span>
+                </div>
               </div>
             )}
+            <div ref={chatEndRef} />
           </div>
-          <div className="flex gap-2">
-            <input
-              type="text" value={input} onChange={(e) => setInput(e.target.value)}
-              onKeyDown={(e) => e.key === "Enter" && sendMessage()}
-              placeholder="Ask a question..."
-              className="flex-grow bg-neutral-900/50 text-white border border-neutral-800 rounded-full px-5 py-3 outline-none focus:border-neutral-500 transition text-sm"
-            />
-            <button onClick={sendMessage} disabled={loading} className="bg-white text-black font-semibold px-8 py-3 rounded-full hover:bg-neutral-200 transition disabled:opacity-50">
-              Send
-            </button>
+
+          {/* Chat Input Area / Limit Paywall */}
+          <div className="p-4 bg-neutral-950/80 border-t border-neutral-800">
+            {isLimitReached ? (
+              <div className="text-center p-4 bg-neutral-900 border border-neutral-800 rounded-2xl">
+                <p className="text-white font-medium mb-3">You have reached the free trial limit.</p>
+                <a href="/login" className="inline-block px-6 py-2 bg-white text-black font-bold rounded-full hover:bg-neutral-200 transition text-sm">
+                  Login to Continue Chatting
+                </a>
+              </div>
+            ) : (
+              <div className="relative flex items-center">
+                <input
+                  type="text" 
+                  value={input} 
+                  onChange={(e) => setInput(e.target.value)}
+                  onKeyDown={(e) => e.key === "Enter" && sendMessage()}
+                  placeholder="Message Snnlies AI..."
+                  className="w-full bg-neutral-900 text-white border border-neutral-800 rounded-full pl-6 pr-14 py-4 outline-none focus:border-neutral-500 transition text-sm"
+                  disabled={loading}
+                />
+                <button 
+                  onClick={sendMessage} 
+                  disabled={loading || !input.trim()} 
+                  className="absolute right-2 bg-white text-black p-2 rounded-full hover:bg-neutral-200 transition disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
+                    <path d="M3.478 2.404a.75.75 0 0 0-.926.941l2.432 7.905H13.5a.75.75 0 0 1 0 1.5H4.984l-2.432 7.905a.75.75 0 0 0 .926.94 60.519 60.519 0 0 0 18.445-8.986.75.75 0 0 0 0-1.218A60.517 60.517 0 0 0 3.478 2.404Z" />
+                  </svg>
+                </button>
+              </div>
+            )}
+            <p className="text-center text-neutral-600 text-xs mt-3">
+              {3 - userMessageCount} free messages remaining. <a href="/login" className="underline hover:text-white">Login</a> for unlimited access.
+            </p>
           </div>
         </div>
       </section>
