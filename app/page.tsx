@@ -27,22 +27,27 @@ export default function Home() {
         </p>
       </section>
 
-      {/* 2. AI CHAT DEMO SECTION (MOCKUP CTA) */}
+      {/* 2. MULTI-AGENT CHAT DEMO SECTION */}
       <section className="w-full max-w-3xl mx-auto px-4 pb-24 relative z-10">
         <div className="w-full flex flex-col bg-black/60 backdrop-blur-xl border border-neutral-800 rounded-3xl overflow-hidden shadow-2xl relative">
           
-          {/* Chat Header - No Emojis, Pure Typography */}
+          {/* Chat Header - Multi Agent */}
           <div className="bg-neutral-900/60 px-6 py-4 border-b border-neutral-800 flex items-center justify-between">
             <div className="flex items-center gap-4">
-              {/* Clean 'S' Avatar */}
-              <div className="w-10 h-10 rounded-full bg-white text-black flex items-center justify-center font-bold text-lg">
-                S
+              {/* Overlapping Avatars */}
+              <div className="flex -space-x-3">
+                <div className="w-10 h-10 rounded-full bg-white text-black flex items-center justify-center font-bold text-sm border-2 border-black z-10">
+                  L
+                </div>
+                <div className="w-10 h-10 rounded-full bg-neutral-800 text-white flex items-center justify-center font-bold text-sm border-2 border-black">
+                  N
+                </div>
               </div>
               <div>
                 <h3 className="text-white font-medium text-sm">
-                  Snnlies AI
+                  Lumi and Nova
                 </h3>
-                <p className="text-neutral-500 text-xs">Online and ready</p>
+                <p className="text-neutral-500 text-xs">Snnlies AI Agents</p>
               </div>
             </div>
             <div className="hidden sm:block text-xs font-medium text-neutral-400 bg-neutral-950 px-3 py-1 rounded-full border border-neutral-800">
@@ -50,32 +55,52 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Chat Messages Area - Professional Copy */}
-          <div className="flex-grow p-6 space-y-6 h-[350px] overflow-hidden relative">
-            {/* Message 1 */}
+          {/* Chat Messages Area - Multi Agent Chatting */}
+          <div className="flex-grow p-6 space-y-6 h-[400px] overflow-hidden relative">
+            
+            {/* Lumi (Left) */}
             <div className="flex justify-start">
               <div className="w-8 h-8 rounded-full bg-white text-black flex items-center justify-center font-bold text-xs mr-3 shrink-0 mt-1">
-                S
+                L
               </div>
-              <div className="px-5 py-3.5 rounded-2xl bg-neutral-900 border border-neutral-800 text-neutral-200 rounded-tl-sm text-sm max-w-[80%] leading-relaxed">
-                Hello. I am Snnlies, your intelligent Discord assistant. I can optimize your server, generate content, and streamline moderation. How may I assist you today?
+              <div>
+                <p className="text-[10px] text-neutral-500 mb-1 ml-1 font-medium">Lumi (Community Agent)</p>
+                <div className="px-5 py-3 rounded-2xl bg-neutral-900 border border-neutral-800 text-neutral-200 rounded-tl-sm text-sm max-w-[85%] leading-relaxed">
+                  Hi there. I am Lumi. I handle welcome messages, community vibes, and custom emojis. Welcome to the server.
+                </div>
               </div>
             </div>
 
-            {/* Message 2 */}
+            {/* User (Right) */}
             <div className="flex justify-end">
-              <div className="px-5 py-3.5 rounded-2xl bg-white text-black font-medium rounded-tr-sm text-sm max-w-[80%]">
-                Can you set up auto-moderation and generate a custom welcome message for new members?
+              <div className="px-5 py-3 rounded-2xl bg-white text-black font-medium rounded-tr-sm text-sm max-w-[80%]">
+                Thanks Lumi. Can you and Nova help me set up auto-moderation too?
               </div>
             </div>
 
-            {/* Message 3 */}
+            {/* Nova (Left) */}
+            <div className="flex justify-start">
+              <div className="w-8 h-8 rounded-full bg-neutral-800 text-white border border-neutral-700 flex items-center justify-center font-bold text-xs mr-3 shrink-0 mt-1">
+                N
+              </div>
+              <div>
+                <p className="text-[10px] text-neutral-500 mb-1 ml-1 font-medium">Nova (Tech Agent)</p>
+                <div className="px-5 py-3 rounded-2xl bg-neutral-900 border border-neutral-800 text-neutral-200 rounded-tl-sm text-sm max-w-[85%] leading-relaxed">
+                  Already on it. I have configured anti-spam and link filters. I will monitor the server 24/7. You are safe with me.
+                </div>
+              </div>
+            </div>
+
+            {/* Lumi (Left again) */}
             <div className="flex justify-start">
               <div className="w-8 h-8 rounded-full bg-white text-black flex items-center justify-center font-bold text-xs mr-3 shrink-0 mt-1">
-                S
+                L
               </div>
-              <div className="px-5 py-3.5 rounded-2xl bg-neutral-900 border border-neutral-800 text-neutral-200 rounded-tl-sm text-sm max-w-[80%] leading-relaxed">
-                Absolutely. I have configured a smart anti-spam filter and drafted a personalized welcome message. Would you like to review the changes in your dashboard?
+              <div>
+                <p className="text-[10px] text-neutral-500 mb-1 ml-1 font-medium">Lumi (Community Agent)</p>
+                <div className="px-5 py-3 rounded-2xl bg-neutral-900 border border-neutral-800 text-neutral-200 rounded-tl-sm text-sm max-w-[85%] leading-relaxed">
+                  And I just drafted a cute welcome message for your new members. Want to see it?
+                </div>
               </div>
             </div>
 
@@ -83,9 +108,9 @@ export default function Home() {
             <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-[#0a0a0a] to-transparent"></div>
           </div>
 
-          {/* Chat Input Area (CTA Instead of Input) */}
+          {/* Chat Input Area (CTA) */}
           <div className="p-6 bg-neutral-950/90 border-t border-neutral-800 text-center relative z-20">
-            <p className="text-neutral-400 text-sm mb-4">Experience the full power of Snnlies AI on your server.</p>
+            <p className="text-neutral-400 text-sm mb-4">Join the conversation. Experience Snnlies Multi-Agent AI.</p>
             <a href="/login" className="inline-flex items-center justify-center w-full px-8 py-4 bg-white text-black font-semibold rounded-full hover:bg-neutral-200 transition-all shadow-[0_0_20px_rgba(255,255,255,0.1)]">
               Login to Continue
             </a>
@@ -125,7 +150,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 5. FAQ SECTION (No Symbols, Pure Text) */}
+      {/* 5. FAQ SECTION */}
       <section className="w-full max-w-3xl mx-auto px-6 py-24 relative z-10">
         <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">Frequently Asked Questions</h2>
         <div className="space-y-4">
@@ -136,7 +161,6 @@ export default function Home() {
                 className="w-full px-6 py-5 text-left flex justify-between items-center hover:bg-neutral-900/50 transition-colors"
               >
                 <span className="font-medium text-neutral-200">{faq.q}</span>
-                {/* Replaced symbols with pure text */}
                 <span className="text-neutral-500 text-xs uppercase tracking-wider font-semibold">
                   {faqOpen === i ? "Close" : "Open"}
                 </span>
