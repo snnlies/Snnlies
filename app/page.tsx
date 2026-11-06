@@ -31,39 +31,31 @@ export default function Home() {
       <section className="w-full max-w-3xl mx-auto px-4 pb-24 relative z-10">
         <div className="w-full flex flex-col bg-black/60 backdrop-blur-xl border border-neutral-800 rounded-3xl overflow-hidden shadow-2xl relative">
           
-          {/* Chat Header with Modern Grok-like Avatar */}
+          {/* Chat Header - No Emojis, Pure Typography */}
           <div className="bg-neutral-900/60 px-6 py-4 border-b border-neutral-800 flex items-center justify-between">
             <div className="flex items-center gap-4">
-              <div className="relative">
-                {/* Modern Geometric AI Avatar */}
-                <div className="w-10 h-10 rounded-full bg-neutral-900 border border-neutral-700 flex items-center justify-center shadow-[0_0_15px_rgba(255,255,255,0.05)]">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 text-white">
-                    <path d="M12 2L14.4 9.6H22L15.8 14.4L18.2 22L12 17.2L5.8 22L8.2 14.4L2 9.6H9.6L12 2Z" />
-                  </svg>
-                </div>
-                <div className="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-black rounded-full"></div>
+              {/* Clean 'S' Avatar */}
+              <div className="w-10 h-10 rounded-full bg-white text-black flex items-center justify-center font-bold text-lg">
+                S
               </div>
               <div>
-                <h3 className="text-white font-medium text-sm flex items-center gap-2">
-                  Snnlies Agent
-                  <span className="text-[10px] bg-white text-black px-2 py-0.5 rounded-full font-bold uppercase tracking-wider">AI</span>
+                <h3 className="text-white font-medium text-sm">
+                  Snnlies AI
                 </h3>
-                <p className="text-neutral-500 text-xs">Online • Ready to assist</p>
+                <p className="text-neutral-500 text-xs">Online and ready</p>
               </div>
             </div>
-            <div className="hidden sm:block text-xs font-medium text-neutral-500 bg-neutral-950 px-3 py-1 rounded-full border border-neutral-800">
+            <div className="hidden sm:block text-xs font-medium text-neutral-400 bg-neutral-950 px-3 py-1 rounded-full border border-neutral-800">
               Live Preview
             </div>
           </div>
 
-          {/* Chat Messages Area (Static Mockup) */}
+          {/* Chat Messages Area - Professional Copy */}
           <div className="flex-grow p-6 space-y-6 h-[350px] overflow-hidden relative">
             {/* Message 1 */}
             <div className="flex justify-start">
-              <div className="w-8 h-8 rounded-full bg-neutral-900 border border-neutral-700 flex items-center justify-center mr-3 shrink-0 mt-1">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4 text-white">
-                  <path d="M12 2L14.4 9.6H22L15.8 14.4L18.2 22L12 17.2L5.8 22L8.2 14.4L2 9.6H9.6L12 2Z" />
-                </svg>
+              <div className="w-8 h-8 rounded-full bg-white text-black flex items-center justify-center font-bold text-xs mr-3 shrink-0 mt-1">
+                S
               </div>
               <div className="px-5 py-3.5 rounded-2xl bg-neutral-900 border border-neutral-800 text-neutral-200 rounded-tl-sm text-sm max-w-[80%] leading-relaxed">
                 Hello. I am Snnlies, your intelligent Discord assistant. I can optimize your server, generate content, and streamline moderation. How may I assist you today?
@@ -79,10 +71,8 @@ export default function Home() {
 
             {/* Message 3 */}
             <div className="flex justify-start">
-              <div className="w-8 h-8 rounded-full bg-neutral-900 border border-neutral-700 flex items-center justify-center mr-3 shrink-0 mt-1">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4 text-white">
-                  <path d="M12 2L14.4 9.6H22L15.8 14.4L18.2 22L12 17.2L5.8 22L8.2 14.4L2 9.6H9.6L12 2Z" />
-                </svg>
+              <div className="w-8 h-8 rounded-full bg-white text-black flex items-center justify-center font-bold text-xs mr-3 shrink-0 mt-1">
+                S
               </div>
               <div className="px-5 py-3.5 rounded-2xl bg-neutral-900 border border-neutral-800 text-neutral-200 rounded-tl-sm text-sm max-w-[80%] leading-relaxed">
                 Absolutely. I have configured a smart anti-spam filter and drafted a personalized welcome message. Would you like to review the changes in your dashboard?
@@ -121,21 +111,21 @@ export default function Home() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="bg-black/40 backdrop-blur-sm border border-neutral-800/80 p-8 rounded-3xl hover:border-neutral-600 transition-colors group">
-            <h3 className="text-lg font-bold mb-3 text-white group-hover:text-white">AI Chat Integration</h3>
+            <h3 className="text-lg font-bold mb-3 text-white">AI Chat Integration</h3>
             <p className="text-neutral-500 text-sm leading-relaxed">Talk to your members using advanced AI. Human-like responses, instant knowledge, zero delay.</p>
           </div>
           <div className="bg-black/40 backdrop-blur-sm border border-neutral-800/80 p-8 rounded-3xl hover:border-neutral-600 transition-colors group">
-            <h3 className="text-lg font-bold mb-3 text-white group-hover:text-white">Advanced Moderation</h3>
+            <h3 className="text-lg font-bold mb-3 text-white">Advanced Moderation</h3>
             <p className="text-neutral-500 text-sm leading-relaxed">Keep your server safe with auto-mod, anti-spam, and detailed logging systems.</p>
           </div>
           <div className="bg-black/40 backdrop-blur-sm border border-neutral-800/80 p-8 rounded-3xl hover:border-neutral-600 transition-colors group">
-            <h3 className="text-lg font-bold mb-3 text-white group-hover:text-white">Web Dashboard</h3>
+            <h3 className="text-lg font-bold mb-3 text-white">Web Dashboard</h3>
             <p className="text-neutral-500 text-sm leading-relaxed">Manage everything from this beautiful, real-time web interface. No commands needed.</p>
           </div>
         </div>
       </section>
 
-      {/* 5. FAQ SECTION */}
+      {/* 5. FAQ SECTION (No Symbols, Pure Text) */}
       <section className="w-full max-w-3xl mx-auto px-6 py-24 relative z-10">
         <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">Frequently Asked Questions</h2>
         <div className="space-y-4">
@@ -146,7 +136,10 @@ export default function Home() {
                 className="w-full px-6 py-5 text-left flex justify-between items-center hover:bg-neutral-900/50 transition-colors"
               >
                 <span className="font-medium text-neutral-200">{faq.q}</span>
-                <span className="text-neutral-500 text-xl font-light">{faqOpen === i ? "−" : "+"}</span>
+                {/* Replaced symbols with pure text */}
+                <span className="text-neutral-500 text-xs uppercase tracking-wider font-semibold">
+                  {faqOpen === i ? "Close" : "Open"}
+                </span>
               </button>
               {faqOpen === i && (
                 <div className="px-6 pb-5 text-neutral-400 text-sm leading-relaxed border-t border-neutral-800/50 pt-4">
