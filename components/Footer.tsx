@@ -31,9 +31,12 @@ export default function Footer() {
           </ul>
         </div>
       </div>
+      
+      {/* Copyright Section */}
       <div className="max-w-6xl mx-auto px-6 mt-16 pt-8 border-t border-neutral-900 flex flex-col md:flex-row justify-between items-center text-neutral-600 text-xs">
-        <p>© {new Date().getFullYear()} Snnlies. All rights reserved.</p>
-        <p className="mt-2 md:mt-0">Designed for the future of Discord.</p>
+        <p className="font-medium tracking-wide text-neutral-400">
+          Snnlies © 2026-2027
+        </p>
       </div>
     </footer>
   );

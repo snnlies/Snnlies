@@ -18,107 +18,24 @@ export default function Home() {
       <div className="absolute inset-0 z-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
 
       {/* 1. HERO SECTION */}
-      <section className="w-full max-w-6xl mx-auto px-6 pb-12 text-center flex flex-col items-center relative z-10 pt-10">
+      <section className="w-full max-w-6xl mx-auto px-6 pb-24 text-center flex flex-col items-center relative z-10 pt-20">
         <h1 className="text-6xl md:text-8xl font-bold mb-6 tracking-tight text-white drop-shadow-sm">
           Snnlies
         </h1>
         <p className="text-neutral-400 text-lg md:text-xl max-w-2xl mb-10 leading-relaxed font-light">
           Elevate your Discord server with unmatched moderation, extreme customizability, and raw AI power.
         </p>
-      </section>
-
-      {/* 2. MULTI-AGENT CHAT DEMO SECTION */}
-      <section className="w-full max-w-3xl mx-auto px-4 pb-24 relative z-10">
-        <div className="w-full flex flex-col bg-black/60 backdrop-blur-xl border border-neutral-800 rounded-3xl overflow-hidden shadow-2xl relative">
-          
-          {/* Chat Header - Multi Agent */}
-          <div className="bg-neutral-900/60 px-6 py-4 border-b border-neutral-800 flex items-center justify-between">
-            <div className="flex items-center gap-4">
-              {/* Overlapping Avatars */}
-              <div className="flex -space-x-3">
-                <div className="w-10 h-10 rounded-full bg-white text-black flex items-center justify-center font-bold text-sm border-2 border-black z-10">
-                  L
-                </div>
-                <div className="w-10 h-10 rounded-full bg-neutral-800 text-white flex items-center justify-center font-bold text-sm border-2 border-black">
-                  N
-                </div>
-              </div>
-              <div>
-                <h3 className="text-white font-medium text-sm">
-                  Lumi and Nova
-                </h3>
-                <p className="text-neutral-500 text-xs">Snnlies AI Agents</p>
-              </div>
-            </div>
-            <div className="hidden sm:block text-xs font-medium text-neutral-400 bg-neutral-950 px-3 py-1 rounded-full border border-neutral-800">
-              Live Preview
-            </div>
-          </div>
-
-          {/* Chat Messages Area - Multi Agent Chatting */}
-          <div className="flex-grow p-6 space-y-6 h-[400px] overflow-hidden relative">
-            
-            {/* Lumi (Left) */}
-            <div className="flex justify-start">
-              <div className="w-8 h-8 rounded-full bg-white text-black flex items-center justify-center font-bold text-xs mr-3 shrink-0 mt-1">
-                L
-              </div>
-              <div>
-                <p className="text-[10px] text-neutral-500 mb-1 ml-1 font-medium">Lumi (Community Agent)</p>
-                <div className="px-5 py-3 rounded-2xl bg-neutral-900 border border-neutral-800 text-neutral-200 rounded-tl-sm text-sm max-w-[85%] leading-relaxed">
-                  Hi there. I am Lumi. I handle welcome messages, community vibes, and custom emojis. Welcome to the server.
-                </div>
-              </div>
-            </div>
-
-            {/* User (Right) */}
-            <div className="flex justify-end">
-              <div className="px-5 py-3 rounded-2xl bg-white text-black font-medium rounded-tr-sm text-sm max-w-[80%]">
-                Thanks Lumi. Can you and Nova help me set up auto-moderation too?
-              </div>
-            </div>
-
-            {/* Nova (Left) */}
-            <div className="flex justify-start">
-              <div className="w-8 h-8 rounded-full bg-neutral-800 text-white border border-neutral-700 flex items-center justify-center font-bold text-xs mr-3 shrink-0 mt-1">
-                N
-              </div>
-              <div>
-                <p className="text-[10px] text-neutral-500 mb-1 ml-1 font-medium">Nova (Tech Agent)</p>
-                <div className="px-5 py-3 rounded-2xl bg-neutral-900 border border-neutral-800 text-neutral-200 rounded-tl-sm text-sm max-w-[85%] leading-relaxed">
-                  Already on it. I have configured anti-spam and link filters. I will monitor the server 24/7. You are safe with me.
-                </div>
-              </div>
-            </div>
-
-            {/* Lumi (Left again) */}
-            <div className="flex justify-start">
-              <div className="w-8 h-8 rounded-full bg-white text-black flex items-center justify-center font-bold text-xs mr-3 shrink-0 mt-1">
-                L
-              </div>
-              <div>
-                <p className="text-[10px] text-neutral-500 mb-1 ml-1 font-medium">Lumi (Community Agent)</p>
-                <div className="px-5 py-3 rounded-2xl bg-neutral-900 border border-neutral-800 text-neutral-200 rounded-tl-sm text-sm max-w-[85%] leading-relaxed">
-                  And I just drafted a cute welcome message for your new members. Want to see it?
-                </div>
-              </div>
-            </div>
-
-            {/* Fade effect at the bottom */}
-            <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-[#0a0a0a] to-transparent"></div>
-          </div>
-
-          {/* Chat Input Area (CTA) */}
-          <div className="p-6 bg-neutral-950/90 border-t border-neutral-800 text-center relative z-20">
-            <p className="text-neutral-400 text-sm mb-4">Join the conversation. Experience Snnlies Multi-Agent AI.</p>
-            <a href="/login" className="inline-flex items-center justify-center w-full px-8 py-4 bg-white text-black font-semibold rounded-full hover:bg-neutral-200 transition-all shadow-[0_0_20px_rgba(255,255,255,0.1)]">
-              Login to Continue
-            </a>
-          </div>
+        <div className="flex gap-4 flex-col sm:flex-row w-full sm:w-auto">
+          <a href="/login" className="px-10 py-4 bg-white text-black font-semibold rounded-full hover:bg-neutral-200 transition-all shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_30px_rgba(255,255,255,0.3)]">
+            Get Started
+          </a>
+          <a href="/features" className="px-10 py-4 border border-neutral-800 bg-black/50 backdrop-blur-sm text-white font-semibold rounded-full hover:bg-neutral-900 transition-all">
+            Explore Features
+          </a>
         </div>
       </section>
 
-      {/* 3. STATS SECTION */}
+      {/* 2. STATS SECTION */}
       <section className="w-full border-y border-neutral-800 bg-black/40 backdrop-blur-sm py-16 relative z-10">
         <div className="max-w-5xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-neutral-800/50">
           <div><h3 className="text-4xl font-bold text-white mb-2">10K+</h3><p className="text-neutral-500 text-sm font-medium">Active Servers</p></div>
@@ -128,7 +45,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 4. FEATURES PREVIEW */}
+      {/* 3. FEATURES PREVIEW */}
       <section className="w-full max-w-6xl mx-auto px-6 py-24 relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Everything you need.</h2>
@@ -150,7 +67,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 5. FAQ SECTION */}
+      {/* 4. FAQ SECTION */}
       <section className="w-full max-w-3xl mx-auto px-6 py-24 relative z-10">
         <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">Frequently Asked Questions</h2>
         <div className="space-y-4">
@@ -175,7 +92,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 6. FINAL CTA */}
+      {/* 5. FINAL CTA */}
       <section className="w-full max-w-5xl mx-auto px-6 pb-24 text-center relative z-10">
         <div className="bg-gradient-to-b from-neutral-900 to-black border border-neutral-800 rounded-3xl p-12 md:p-20 shadow-2xl">
           <h2 className="text-3xl md:text-5xl font-bold mb-6 tracking-tight">Ready to upgrade?</h2>
