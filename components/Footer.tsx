@@ -11,7 +11,7 @@ export default function Footer() {
           <ul className="space-y-3 text-neutral-500">
             <li><a href="/features" className="hover:text-white transition-colors">Features</a></li>
             <li><a href="/dashboard" className="hover:text-white transition-colors">Dashboard</a></li>
-            <li><a href="/login" className="hover:text-white transition-colors">Login</a></li>
+            <li><a href="/security" className="hover:text-white transition-colors">Security</a></li>
           </ul>
         </div>
         <div>
@@ -25,9 +25,8 @@ export default function Footer() {
         <div>
           <h4 className="text-white font-semibold mb-4 tracking-wide text-xs uppercase">Legal</h4>
           <ul className="space-y-3 text-neutral-500">
-            <li><a href="#" className="hover:text-white transition-colors">Privacy Policy</a></li>
-            <li><a href="#" className="hover:text-white transition-colors">Terms of Service</a></li>
-            <li><a href="#" className="hover:text-white transition-colors">Cookie Policy</a></li>
+            <li><a href="/privacy" className="hover:text-white transition-colors">Privacy Policy</a></li>
+            <li><a href="/terms" className="hover:text-white transition-colors">Terms of Service</a></li>
           </ul>
         </div>
       </div>
