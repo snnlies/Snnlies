@@ -39,8 +39,10 @@ export default function Footer() {
         </div>
 
         <div className="flex flex-col md:flex-row justify-between items-center w-full pt-8 border-t border-neutral-200">
-          <p className="text-black text-sm font-bold">
-            © 2026 Snnlies. All Rights Reserved.
+          {/* Public Owner & Company Information */}
+          <p className="text-black text-sm font-bold text-center md:text-left">
+            © 2026 Snnlies®. All Rights Reserved. <br className="md:hidden" />
+            <span className="text-neutral-500">Owned by Sabine.</span>
           </p>
           
           <div className="flex items-center gap-4 mt-4 md:mt-0">
