@@ -11,17 +11,20 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
 }
 
-.glow-card {
-  position: relative;
+/* Custom Scrollbar for Premium Look */
+::-webkit-scrollbar {
+  width: 8px;
 }
-.glow-card::before {
-  content: "";
-  position: absolute;
-  inset: -1px;
-  border-radius: 1.5rem;
-  background: linear-gradient(180deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%);
-  z-index: -1;
-  pointer-events: none;
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+::-webkit-scrollbar-thumb {
+  background: #333333;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555555;
 }

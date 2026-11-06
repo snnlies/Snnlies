@@ -18,9 +18,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-black text-white antialiased min-h-screen flex flex-col selection:bg-white selection:text-black`}>
+      <body className={`${inter.className} bg-black text-white min-h-screen flex flex-col selection:bg-white selection:text-black`}>
         <Navbar />
-        <main className="flex-grow w-full pt-20">{children}</main>
+        {/* pt-20 ensures content doesn't hide behind fixed header */}
+        <main className="flex-grow w-full pt-20">
+          {children}
+        </main>
         <Footer />
       </body>
     </html>
