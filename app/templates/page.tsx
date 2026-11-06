@@ -48,12 +48,21 @@ export default function Templates() {
               <h3 className="text-2xl font-bold text-black mb-3">{tpl.name}</h3>
               <p className="text-neutral-500 text-sm leading-relaxed mb-8">{tpl.desc}</p>
             </div>
+            
+            {/* Sliding Button for Deploy */}
             <button 
               onClick={() => handleDeploy(tpl.name)}
               disabled={loading === tpl.name}
-              className="w-full py-3.5 bg-black text-white font-semibold rounded-full hover:bg-neutral-800 disabled:opacity-50 transition-all mt-auto shadow-md"
+              className="w-full group/btn relative flex items-center p-1.5 bg-[#EBEBEB] rounded-full transition-all duration-300 hover:bg-[#E0E0E0] disabled:opacity-50 mt-auto"
             >
-              {loading === tpl.name ? "Deploying..." : "Deploy Template"}
+              <span className="flex-grow flex items-center justify-center bg-black px-6 py-3 rounded-full shadow-md text-white font-semibold text-sm transition-transform duration-300 group-hover/btn:scale-105">
+                {loading === tpl.name ? "Deploying..." : "Deploy Template"}
+              </span>
+              <span className="pl-3 pr-2 text-black transition-transform duration-300 group-hover/btn:translate-x-1">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2.5" stroke="currentColor" className="w-5 h-5">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                </svg>
+              </span>
             </button>
           </div>
         ))}

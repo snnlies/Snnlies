@@ -17,15 +17,19 @@ export default function Home() {
             Deploy enterprise-grade automation, AI moderation, and massive server structures in seconds. Built for scale.
           </p>
         </ScrollReveal>
+        
+        {/* Apple Sliding Button */}
         <ScrollReveal delay={400}>
-          <div className="flex gap-4 flex-col sm:flex-row w-full sm:w-auto">
-            <Link href="/chat" className="px-10 py-4 bg-gradient-to-b from-blue-400 to-blue-500 text-white font-semibold rounded-full hover:scale-105 transition-all shadow-[0_8px_20px_rgba(59,130,246,0.3)]">
-              Try AI Workspace
-            </Link>
-            <Link href="/templates" className="px-10 py-4 bg-white border border-neutral-200 text-black font-semibold rounded-full hover:bg-neutral-50 transition-colors apple-shadow">
-              View Templates
-            </Link>
-          </div>
+          <Link href="/chat" className="group relative flex items-center p-1.5 bg-[#EBEBEB] rounded-full transition-all duration-300 hover:bg-[#E0E0E0]">
+            <span className="flex items-center justify-center bg-white px-8 py-3.5 rounded-full shadow-[0_2px_10px_rgba(0,0,0,0.05)] text-black font-semibold text-lg transition-transform duration-300 group-hover:scale-105">
+              Get Started
+            </span>
+            <span className="pl-4 pr-3 text-black transition-transform duration-300 group-hover:translate-x-1">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-6 h-6">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+              </svg>
+            </span>
+          </Link>
         </ScrollReveal>
       </section>
       <Footer />
