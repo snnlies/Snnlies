@@ -1,35 +1,70 @@
 export default function Dashboard() {
-  // Mock servers for UI demonstration
-  const servers = [
-    { name: "Snnlies HQ", members: "1,204", role: "Admin" },
-    { name: "Gaming Community", members: "45,200", role: "Moderator" },
-    { name: "Devs Hub", members: "8,900", role: "Member" },
-  ];
-
   return (
-    <div className="max-w-6xl mx-auto px-6 py-12">
-      <h2 className="text-3xl font-bold mb-2">Your Servers</h2>
-      <p className="text-neutral-400 mb-10">Select a server to manage Snnlies AI Agent.</p>
+    <div className="w-full max-w-6xl mx-auto px-6 py-12 relative z-10 flex flex-col md:flex-row gap-8">
+      
+      {/* Sidebar */}
+      <div className="w-full md:w-64 shrink-0 flex flex-col gap-2">
+        <div className="flex items-center gap-3 px-4 py-3 bg-neutral-900 rounded-xl border border-neutral-800 mb-6">
+          <div className="w-8 h-8 rounded-full bg-white text-black flex items-center justify-center font-bold text-sm">S</div>
+          <div>
+            <h3 className="text-sm font-bold text-white leading-tight">Snnlies HQ</h3>
+            <p className="text-xs text-neutral-500">Admin</p>
+          </div>
+        </div>
+        <button className="text-left px-4 py-2.5 rounded-lg bg-neutral-800 text-white text-sm font-medium transition-colors">Overview</button>
+        <button className="text-left px-4 py-2.5 rounded-lg text-neutral-400 hover:text-white hover:bg-neutral-900 text-sm font-medium transition-colors">AI Settings</button>
+        <button className="text-left px-4 py-2.5 rounded-lg text-neutral-400 hover:text-white hover:bg-neutral-900 text-sm font-medium transition-colors">Moderation</button>
+        <button className="text-left px-4 py-2.5 rounded-lg text-neutral-400 hover:text-white hover:bg-neutral-900 text-sm font-medium transition-colors">Credits & Usage</button>
+      </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {servers.map((server, i) => (
-          <div key={i} className="bg-neutral-950 border border-neutral-800 rounded-2xl p-6 hover:border-neutral-600 transition cursor-pointer group">
-            <div className="w-16 h-16 bg-neutral-900 rounded-full mb-4 flex items-center justify-center text-xl font-bold group-hover:bg-white group-hover:text-black transition">
-              {server.name.charAt(0)}
+      {/* Main Content */}
+      <div className="flex-grow">
+        <h1 className="text-3xl font-bold text-white mb-8 tracking-tight">Server Overview</h1>
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+          <div className="bg-neutral-950 border border-neutral-800 p-6 rounded-2xl">
+            <p className="text-sm text-neutral-500 mb-1">Total Credits</p>
+            <h2 className="text-3xl font-bold text-white">8,450</h2>
+            <p className="text-xs text-green-500 mt-2">Resets in 14h 22m</p>
+          </div>
+          <div className="bg-neutral-950 border border-neutral-800 p-6 rounded-2xl">
+            <p className="text-sm text-neutral-500 mb-1">AI Messages</p>
+            <h2 className="text-3xl font-bold text-white">1,204</h2>
+            <p className="text-xs text-neutral-400 mt-2">This month</p>
+          </div>
+          <div className="bg-neutral-950 border border-neutral-800 p-6 rounded-2xl">
+            <p className="text-sm text-neutral-500 mb-1">Active Modules</p>
+            <h2 className="text-3xl font-bold text-white">12</h2>
+            <p className="text-xs text-neutral-400 mt-2">All systems operational</p>
+          </div>
+        </div>
+
+        <div className="bg-neutral-950 border border-neutral-800 p-8 rounded-2xl">
+          <h3 className="text-lg font-bold text-white mb-6">Recent Activity</h3>
+          <div className="space-y-4">
+            <div className="flex items-center justify-between border-b border-neutral-900 pb-4">
+              <div className="flex items-center gap-3">
+                <div className="w-2 h-2 rounded-full bg-green-500"></div>
+                <p className="text-sm text-neutral-300">AI Chat module enabled</p>
+              </div>
+              <p className="text-xs text-neutral-600">2 mins ago</p>
             </div>
-            <h3 className="text-xl font-bold text-white mb-1">{server.name}</h3>
-            <p className="text-sm text-neutral-500 mb-4">{server.members} Members</p>
-            <div className="inline-block px-3 py-1 bg-neutral-900 text-xs text-neutral-300 rounded-full border border-neutral-800">
-              {server.role}
+            <div className="flex items-center justify-between border-b border-neutral-900 pb-4">
+              <div className="flex items-center gap-3">
+                <div className="w-2 h-2 rounded-full bg-red-500"></div>
+                <p className="text-sm text-neutral-300">Blocked spam attempt by user</p>
+              </div>
+              <p className="text-xs text-neutral-600">15 mins ago</p>
+            </div>
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <div className="w-2 h-2 rounded-full bg-white"></div>
+                <p className="text-sm text-neutral-300">Welcome message updated</p>
+              </div>
+              <p className="text-xs text-neutral-600">1 hour ago</p>
             </div>
           </div>
-        ))}
-        
-        {/* Add Server Button */}
-        <a href="https://discord.com/oauth2/authorize?client_id=1568201630112030760&permissions=8&integration_type=0&scope=bot+applications.commands" className="border border-dashed border-neutral-800 rounded-2xl p-6 flex flex-col items-center justify-center text-neutral-500 hover:text-white hover:border-neutral-500 transition min-h-[200px]">
-          <span className="text-4xl mb-2">+</span>
-          <span>Add to New Server</span>
-        </a>
+        </div>
       </div>
     </div>
   );
