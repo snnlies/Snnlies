@@ -1,5 +1,6 @@
 "use client";
 import { useState, useRef, useEffect } from "react";
+import ReactMarkdown from "react-markdown";
 
 export default function ChatWorkspace() {
   const [messages, setMessages] = useState<{ role: string; content: string }[]>([
@@ -23,21 +24,31 @@ export default function ChatWorkspace() {
     setInput("");
     setIsGenerating(true);
 
-    // Simulate AI thinking and generating structure
-    setTimeout(() => {
-      setMessages(prev => [...prev, { 
-        role: "ai", 
-        content: "Done. I have generated a premium structure based on your request. You can review it on the right side and deploy it whenever you are ready." 
-      }]);
+    try {
+      const res = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: userMsg })
+      });
+      const data = await res.json();
       
-      setPreviewChannels([
-        { category: "📌 START HERE", channels: ["📢 announcements", "📜 rules"] },
-        { category: "💬 COMMUNITY", channels: ["general-chat", "memes", "media"] },
-        { category: "🎮 GAMING", channels: ["looking-for-group", "tournaments"] }
-      ]);
-      
+      if (data.reply) {
+        setMessages(prev => [...prev, { role: "ai", content: data.reply }]);
+        
+        // Fake the live preview generation based on the AI's response
+        setPreviewChannels([
+          { category: "📌 START HERE", channels: ["📢 announcements", "📜 rules"] },
+          { category: "💬 COMMUNITY", channels: ["general-chat", "memes", "media"] },
+          { category: "🎮 GAMING", channels: ["looking-for-group", "tournaments"] }
+        ]);
+      } else {
+        setMessages(prev => [...prev, { role: "ai", content: "Error: " + (data.error || "Failed to connect to AI.") }]);
+      }
+    } catch (error) {
+      setMessages(prev => [...prev, { role: "ai", content: "Network error. Please try again." }]);
+    } finally {
       setIsGenerating(false);
-    }, 2000);
+    }
   };
 
   return (
@@ -49,7 +60,7 @@ export default function ChatWorkspace() {
           <div className="w-8 h-8 rounded-full bg-white text-black flex items-center justify-center font-bold">S</div>
           <div>
             <h2 className="text-white font-semibold text-sm">Snnlies AI</h2>
-            <p className="text-neutral-500 text-xs">Always online</p>
+            <p className="text-neutral-500 text-xs">Gemini 1.5 Flash</p>
           </div>
         </div>
 
@@ -62,16 +73,22 @@ export default function ChatWorkspace() {
               <div className={`px-5 py-3 rounded-2xl max-w-[85%] text-sm leading-relaxed ${
                 msg.role === "user" 
                   ? "bg-white text-black rounded-tr-sm" 
-                  : "bg-neutral-950 border border-neutral-800 text-white rounded-tl-sm"
+                  : "bg-neutral-950 border border-neutral-800 text-white rounded-tl-sm overflow-x-auto"
               }`}>
-                {msg.content}
+                {msg.role === "ai" ? (
+                  <div className="prose prose-invert prose-sm max-w-none prose-pre:bg-neutral-900 prose-pre:border prose-pre:border-neutral-800">
+                    <ReactMarkdown>{msg.content}</ReactMarkdown>
+                  </div>
+                ) : (
+                  msg.content
+                )}
               </div>
             </div>
           ))}
           {isGenerating && (
             <div className="flex justify-start items-center">
                <div className="w-8 h-8 rounded-full bg-neutral-900 border border-neutral-800 flex items-center justify-center text-white font-bold text-xs mr-3 shrink-0">S</div>
-               <div className="text-neutral-500 text-sm animate-pulse">Generating structure...</div>
+               <div className="text-neutral-500 text-sm animate-pulse">Snnlies is thinking...</div>
             </div>
           )}
           <div ref={chatEndRef} />
