@@ -45,12 +45,7 @@ export default function Home() {
       <div className="absolute inset-0 z-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
 
       {/* 1. HERO SECTION */}
-      <section className="w-full max-w-6xl mx-auto px-6 pb-24 text-center flex flex-col items-center relative z-10">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-neutral-800 bg-neutral-900/50 text-xs font-medium text-neutral-300 mb-8 tracking-wide backdrop-blur-sm">
-          <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-          Snnlies v2.0 is now live
-        </div>
-        
+      <section className="w-full max-w-6xl mx-auto px-6 pb-24 text-center flex flex-col items-center relative z-10 pt-10">
         <h1 className="text-6xl md:text-8xl font-bold mb-6 tracking-tight text-white">
           Snnlies
         </h1>
