@@ -7,8 +7,8 @@ import Footer from "../components/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Snnlies | Premium AI Agent",
-  description: "The next generation of intelligent Discord automation.",
+  title: "Snnlies | Premium Discord Automation",
+  description: "Elevate your Discord server with unmatched moderation, extreme customizability, and raw AI power.",
 };
 
 export default function RootLayout({
@@ -18,9 +18,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-black text-white antialiased min-h-screen flex flex-col`}>
+      <body className={`${inter.className} bg-black text-white antialiased min-h-screen flex flex-col selection:bg-white selection:text-black`}>
         <Navbar />
-        {/* Added pt-32 and md:pt-40 so the fixed header never hides the content */}
         <main className="flex-grow w-full pt-32 md:pt-40">{children}</main>
         <Footer />
       </body>
