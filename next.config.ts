@@ -14,7 +14,13 @@ const nextConfig: NextConfig = {
           { key: 'X-XSS-Protection', value: '1; mode=block' },
           { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
           { key: 'Strict-Transport-Security', value: 'max-age=63072000; includeSubDomains; preload' },
-          { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=()' }
+        ],
+      },
+      {
+        // Block AI scrapers from reading your CSS/JS design files
+        source: '/_next/static/(.*)',
+        headers: [
+          { key: 'X-Robots-Tag', value: 'noindex, nofollow, noarchive' }
         ],
       },
     ]

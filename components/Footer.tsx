@@ -7,19 +7,15 @@ export default function Footer() {
     <footer className="w-full border-t border-neutral-200 bg-white pt-16 pb-8">
       <div className="max-w-6xl mx-auto px-6">
         
-        {/* Footer Links Grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
-          
-          {/* Column 1: Products */}
           <div className="flex flex-col gap-4">
             <h4 className="text-black font-bold text-base mb-2">Products</h4>
             <Link href="/chat" onClick={playClickSound} className="text-black hover:text-neutral-500 transition-colors duration-500 text-sm font-medium">AI Workspace</Link>
             <Link href="/templates" onClick={playClickSound} className="text-black hover:text-neutral-500 transition-colors duration-500 text-sm font-medium">Templates</Link>
             <Link href="/dashboard" onClick={playClickSound} className="text-black hover:text-neutral-500 transition-colors duration-500 text-sm font-medium">Dashboard</Link>
-            <Link href="/referral" onClick={playClickSound} className="text-black hover:text-neutral-500 transition-colors duration-500 text-sm font-medium">Referral Program</Link>
+            <Link href="/referral" onClick={playClickSound} className="text-black hover:text-neutral-500 transition-colors duration-500 text-sm font-medium">Referral</Link>
           </div>
 
-          {/* Column 2: Community */}
           <div className="flex flex-col gap-4">
             <h4 className="text-black font-bold text-base mb-2">Community</h4>
             <Link href="/community" onClick={playClickSound} className="text-black hover:text-neutral-500 transition-colors duration-500 text-sm font-medium">Community Hub</Link>
@@ -27,7 +23,6 @@ export default function Footer() {
             <Link href="/support" onClick={playClickSound} className="text-black hover:text-neutral-500 transition-colors duration-500 text-sm font-medium">Help Center</Link>
           </div>
 
-          {/* Column 3: Resources */}
           <div className="flex flex-col gap-4">
             <h4 className="text-black font-bold text-base mb-2">Resources</h4>
             <Link href="/blog" onClick={playClickSound} className="text-black hover:text-neutral-500 transition-colors duration-500 text-sm font-medium">Blog</Link>
@@ -35,19 +30,17 @@ export default function Footer() {
             <Link href="/updates" onClick={playClickSound} className="text-black hover:text-neutral-500 transition-colors duration-500 text-sm font-medium">Updates</Link>
           </div>
 
-          {/* Column 4: Legal */}
           <div className="flex flex-col gap-4">
             <h4 className="text-black font-bold text-base mb-2">Legal</h4>
             <Link href="/privacy" onClick={playClickSound} className="text-black hover:text-neutral-500 transition-colors duration-500 text-sm font-medium">Privacy Policy</Link>
             <Link href="/terms" onClick={playClickSound} className="text-black hover:text-neutral-500 transition-colors duration-500 text-sm font-medium">Terms of Service</Link>
+            <a href="https://github.com/snnlies/Snnlies/blob/main/LICENSE" target="_blank" rel="noreferrer" className="text-black hover:text-neutral-500 transition-colors duration-500 text-sm font-medium">Copyright Info</a>
           </div>
-
         </div>
 
-        {/* Bottom Bar */}
         <div className="flex flex-col md:flex-row justify-between items-center w-full pt-8 border-t border-neutral-200">
           <p className="text-black text-sm font-bold">
-            © Snnlies 2026.
+            © 2026 Snnlies. All Rights Reserved.
           </p>
           
           <div className="flex items-center gap-4 mt-4 md:mt-0">
@@ -56,9 +49,6 @@ export default function Footer() {
             </a>
             <a href="#" onClick={playClickSound} className="p-2 bg-neutral-100 rounded-full text-black hover:bg-neutral-200 hover:scale-110 transition-all duration-500">
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-            </a>
-            <a href="#" onClick={playClickSound} className="p-2 bg-neutral-100 rounded-full text-black hover:bg-neutral-200 hover:scale-110 transition-all duration-500">
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
             </a>
           </div>
         </div>
