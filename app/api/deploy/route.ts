@@ -3,7 +3,8 @@ import { NextResponse } from 'next/server';
 export async function POST(req: Request) {
   try {
     const { guildId, templateName } = await req.json();
-    const BOT_API_URL = 'https://b4c9dd5559871e.lhr.life/api/deploy';
+    // NEW TUNNEL URL
+    const BOT_API_URL = 'https://df4e2b9941b1da.lhr.life/api/deploy';
 
     const response = await fetch(BOT_API_URL, {
       method: 'POST',
