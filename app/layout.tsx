@@ -24,7 +24,7 @@ export default function RootLayout({
     <html lang="en" className="bg-black">
       <body className={`${space.variable} font-sans bg-black text-white min-h-screen flex flex-col selection:bg-white selection:text-black antialiased`}>
         <Navbar />
-        <main className="flex-grow w-full pt-24">
+        <main className="flex-grow w-full pt-16">
           {children}
         </main>
         <Footer />

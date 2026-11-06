@@ -24,8 +24,8 @@ export default function ScrollReveal({ children, delay = 0 }: { children: React.
     <div
       ref={ref}
       style={{ transitionDelay: `${delay}ms` }}
-      className={`transition-all duration-1000 ease-out w-full flex justify-center ${
-        isVisible ? "opacity-100 blur-0 translate-y-0" : "opacity-0 blur-lg translate-y-16"
+      className={`w-full flex justify-center transition-all duration-[1200ms] ease-out ${
+        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
       }`}
     >
       {children}
