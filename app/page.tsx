@@ -1,42 +1,27 @@
 "use client";
-import { useState } from "react";
 import ScrollReveal from "../components/ScrollReveal";
 import Link from "next/link";
 
 export default function Home() {
-  const [faqOpen, setFaqOpen] = useState<number | null>(null);
-
-  const faqs = [
-    { q: "How does the AI infrastructure work?", a: "Snnlies leverages state-of-the-art LLMs hosted on isolated edge networks to process context, moderate chats, and generate human-like responses with sub-50ms latency." },
-    { q: "What is the uptime guarantee?", a: "We maintain a strict 99.99% uptime SLA. Our infrastructure is globally distributed, ensuring that your community management tools are always available." },
-    { q: "How secure is my server data?", a: "Security is foundational. We employ TLS 1.3 encryption for all data in transit, zero-data-retention policies for AI processing, and strict anti-bypass algorithms." },
-  ];
-
-  const templates = [
-    { name: "Gaming Infrastructure", desc: "Pre-configured LFG channels, automated tournament brackets, and voice room management.", icon: "M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" },
-    { name: "Developer Workspace", desc: "Dedicated code-sharing channels, GitHub webhook integrations, and AI debugging tools.", icon: "M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" },
-    { name: "Enterprise Community", desc: "Advanced onboarding gates, leveling architecture, and automated moderation filters.", icon: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" },
-  ];
-
   return (
     <div className="flex flex-col items-center w-full overflow-hidden relative bg-black">
       
       {/* HERO SECTION */}
-      <section className="w-full max-w-6xl mx-auto px-6 pt-24 pb-20 text-center flex flex-col items-center relative z-10 min-h-[75vh] justify-center">
-        <ScrollReveal delay={100}>
-          <h1 className="text-5xl sm:text-7xl md:text-[6.5rem] font-bold leading-[0.95] tracking-tighter text-white mb-6">
-            INFRASTRUCTURE <br />
-            <span className="text-white">FOR DISCORD.</span>
+      <section className="w-full max-w-6xl mx-auto px-6 pt-16 pb-24 text-center flex flex-col items-center relative z-10">
+        <ScrollReveal>
+          <h1 className="text-5xl sm:text-7xl md:text-[6rem] font-bold leading-[1] tracking-tighter text-white mb-8">
+            AUTOMATION <br />
+            REDEFINED.
           </h1>
         </ScrollReveal>
 
-        <ScrollReveal delay={300}>
-          <p className="text-white text-base md:text-lg max-w-xl mb-10 leading-relaxed font-light">
-            Deploy enterprise-grade automation, AI moderation, and advanced community management in seconds. Built for scale.
+        <ScrollReveal delay={200}>
+          <p className="text-white text-base md:text-lg max-w-xl mb-12 leading-relaxed font-light">
+            The next generation of Discord automation. Advanced moderation, intelligent AI, and absolute precision.
           </p>
         </ScrollReveal>
 
-        <ScrollReveal delay={500}>
+        <ScrollReveal delay={400}>
           <div className="flex gap-4 flex-col sm:flex-row w-full sm:w-auto">
             <Link href="/signup" className="px-8 py-3.5 bg-white text-black font-semibold rounded-full hover:bg-neutral-200 transition-colors">
               Deploy Snnlies
@@ -48,115 +33,74 @@ export default function Home() {
         </ScrollReveal>
       </section>
 
-      {/* TEMPLATES OVERVIEW */}
-      <section className="w-full max-w-6xl mx-auto px-6 py-20 relative z-10 border-t border-neutral-900">
+      {/* ONECORD STYLE AGENT CHAT */}
+      <section className="w-full max-w-4xl mx-auto px-6 pb-24 relative z-10">
         <ScrollReveal>
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
-            <div>
-              <h2 className="text-2xl md:text-4xl font-semibold text-white mb-3 tracking-tight">Production Templates</h2>
-              <p className="text-white font-light max-w-lg text-sm">Deploy fully configured server architectures instantly. Built by community experts.</p>
+          <div className="bg-neutral-950 border border-neutral-800 rounded-3xl p-6 md:p-10 shadow-2xl">
+            <div className="flex flex-col gap-6">
+              
+              {/* User Message */}
+              <div className="flex justify-end">
+                <div className="bg-white text-black px-5 py-3 rounded-2xl rounded-tr-sm max-w-[80%] text-sm font-medium">
+                  My server feels messy. Can you sort out the channels and set up auto-moderation?
+                </div>
+              </div>
+
+              {/* Agent Message */}
+              <div className="flex justify-start">
+                <div className="flex gap-4 max-w-[85%]">
+                  <div className="w-8 h-8 rounded-full bg-black border border-neutral-800 flex items-center justify-center shrink-0 mt-1">
+                    <span className="text-white text-xs font-bold">S</span>
+                  </div>
+                  <div className="bg-neutral-900 border border-neutral-800 px-5 py-3 rounded-2xl rounded-tl-sm text-sm text-white font-light leading-relaxed">
+                    I've prepared a cleaner layout. I've created categories for General, Community, and Voice. I also enabled AI moderation to block spam and slurs automatically.
+                  </div>
+                </div>
+              </div>
+
+              {/* User Message */}
+              <div className="flex justify-end">
+                <div className="bg-white text-black px-5 py-3 rounded-2xl rounded-tr-sm max-w-[80%] text-sm font-medium">
+                  Perfect. What about custom welcome messages?
+                </div>
+              </div>
+
+              {/* Agent Message */}
+              <div className="flex justify-start">
+                <div className="flex gap-4 max-w-[85%]">
+                  <div className="w-8 h-8 rounded-full bg-black border border-neutral-800 flex items-center justify-center shrink-0 mt-1">
+                    <span className="text-white text-xs font-bold">S</span>
+                  </div>
+                  <div className="bg-neutral-900 border border-neutral-800 px-5 py-3 rounded-2xl rounded-tl-sm text-sm text-white font-light leading-relaxed">
+                    Done. I've deployed a custom welcome message with user tagging and a generated welcome image. Everything is live.
+                  </div>
+                </div>
+              </div>
+
             </div>
-            <Link href="/templates" className="text-white text-sm font-medium hover:text-neutral-400 mt-4 md:mt-0 flex items-center gap-1">
-              View all templates 
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-4 h-4"><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
-            </Link>
           </div>
         </ScrollReveal>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {templates.map((template, i) => (
-            <ScrollReveal key={i} delay={i * 200}>
-              <div className="bg-black border border-neutral-800 p-6 rounded-2xl hover:border-white transition-colors duration-300 flex flex-col h-full">
-                <div className="w-10 h-10 rounded-full bg-neutral-900 flex items-center justify-center mb-4">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5 text-white">
-                    <path strokeLinecap="round" strokeLinejoin="round" d={template.icon} />
-                  </svg>
-                </div>
-                <h3 className="text-lg font-medium text-white mb-2">{template.name}</h3>
-                <p className="text-white text-sm font-light leading-relaxed mb-6 flex-grow">{template.desc}</p>
-                <Link href="/templates" className="w-full text-center py-2.5 bg-neutral-900 text-white text-sm font-medium rounded-full hover:bg-white hover:text-black transition-colors">
-                  Deploy Template
-                </Link>
-              </div>
-            </ScrollReveal>
-          ))}
-        </div>
       </section>
 
-      {/* BENTO FEATURES */}
-      <section className="w-full max-w-6xl mx-auto px-6 py-20 relative z-10 border-t border-neutral-900">
-        <ScrollReveal>
-          <h2 className="text-2xl md:text-4xl font-semibold text-white mb-12 text-center tracking-tight">Enterprise Architecture.</h2>
-        </ScrollReveal>
-        
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <ScrollReveal delay={0} className="md:col-span-2">
-            <div className="bg-black border border-neutral-800 p-8 rounded-2xl hover:border-white h-full flex flex-col justify-between">
-              <div className="w-10 h-10 rounded-full bg-neutral-900 flex items-center justify-center mb-6">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5 text-white"><path strokeLinecap="round" strokeLinejoin="round" d="M8.625 12a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H8.25m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H12m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 0 1-2.555-.337A5.972 5.972 0 0 1 5.41 20.97a5.969 5.969 0 0 1-.474-.065 4.48 4.48 0 0 0 .978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25Z" /></svg>
-              </div>
-              <div>
-                <h3 className="text-xl font-medium text-white mb-2 tracking-tight">Advanced AI Processing</h3>
-                <p className="text-white text-sm leading-relaxed font-light">Natural language processing that understands context, tone, and intent. Integrated directly into your community workflows.</p>
-              </div>
-            </div>
+      {/* STATS SECTION */}
+      <section className="w-full border-y border-neutral-900 py-16 relative z-10 bg-black">
+        <div className="max-w-5xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          <ScrollReveal delay={0}>
+            <h3 className="text-3xl md:text-4xl font-bold text-white mb-2 tracking-tight">9.6K</h3>
+            <p className="text-white text-xs font-medium uppercase tracking-widest">Active Users</p>
           </ScrollReveal>
-
+          <ScrollReveal delay={100}>
+            <h3 className="text-3xl md:text-4xl font-bold text-white mb-2 tracking-tight">28.7K</h3>
+            <p className="text-white text-xs font-medium uppercase tracking-widest">Servers</p>
+          </ScrollReveal>
           <ScrollReveal delay={200}>
-            <div className="bg-black border border-neutral-800 p-8 rounded-2xl hover:border-white h-full flex flex-col justify-between">
-              <div className="w-10 h-10 rounded-full bg-neutral-900 flex items-center justify-center mb-6">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5 text-white"><path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z" /></svg>
-              </div>
-              <div>
-                <h3 className="text-lg font-medium text-white mb-2 tracking-tight">Zero-Trust Security</h3>
-                <p className="text-white text-xs leading-relaxed font-light">TLS 1.3 encryption and strict zero-data-retention policies.</p>
-              </div>
-            </div>
+            <h3 className="text-3xl md:text-4xl font-bold text-white mb-2 tracking-tight">99.9%</h3>
+            <p className="text-white text-xs font-medium uppercase tracking-widest">Uptime</p>
           </ScrollReveal>
-
-          <ScrollReveal delay={400}>
-            <div className="bg-black border border-neutral-800 p-8 rounded-2xl hover:border-white h-full flex flex-col justify-between">
-              <div className="w-10 h-10 rounded-full bg-neutral-900 flex items-center justify-center mb-6">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5 text-white"><path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z" /></svg>
-              </div>
-              <div>
-                <h3 className="text-lg font-medium text-white mb-2 tracking-tight">Edge Networking</h3>
-                <p className="text-white text-xs leading-relaxed font-light">Global edge computing ensures sub-50ms response times.</p>
-              </div>
-            </div>
+          <ScrollReveal delay={300}>
+            <h3 className="text-3xl md:text-4xl font-bold text-white mb-2 tracking-tight">24/7</h3>
+            <p className="text-white text-xs font-medium uppercase tracking-widest">Support</p>
           </ScrollReveal>
-
-          <ScrollReveal delay={600} className="md:col-span-2">
-            <div className="bg-black border border-neutral-800 p-8 rounded-2xl hover:border-white h-full flex flex-col justify-between">
-              <div className="w-10 h-10 rounded-full bg-neutral-900 flex items-center justify-center mb-6">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5 text-white"><path strokeLinecap="round" strokeLinejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 1 1-3 0m3 0a1.5 1.5 0 1 0-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-9.75 0h9.75" /></svg>
-              </div>
-              <div>
-                <h3 className="text-xl font-medium text-white mb-2 tracking-tight">Real-Time Analytics Dashboard</h3>
-                <p className="text-white text-sm leading-relaxed font-light">Monitor server health, AI usage, and moderation logs from a beautifully crafted, real-time interface.</p>
-              </div>
-            </div>
-          </ScrollReveal>
-        </div>
-      </section>
-
-      {/* FAQS */}
-      <section className="w-full max-w-3xl mx-auto px-6 py-20 relative z-10 border-t border-neutral-900">
-        <ScrollReveal>
-          <h2 className="text-2xl md:text-4xl font-semibold mb-12 text-center tracking-tight text-white">System Architecture FAQs</h2>
-        </ScrollReveal>
-        <div className="space-y-3">
-          {faqs.map((faq, i) => (
-            <ScrollReveal key={i} delay={i * 150}>
-              <div className="border border-neutral-800 rounded-xl bg-black overflow-hidden">
-                <button onClick={() => setFaqOpen(faqOpen === i ? null : i)} className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-neutral-900 transition-colors">
-                  <span className="font-medium text-white text-sm md:text-base">{faq.q}</span>
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className={`w-4 h-4 text-white transition-transform duration-500 ${faqOpen === i ? "rotate-180" : ""}`}><path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" /></svg>
-                </button>
-                <div className={`px-6 text-white text-sm leading-relaxed border-t border-neutral-800 overflow-hidden transition-all duration-500 ease-in-out ${faqOpen === i ? "max-h-40 py-4 opacity-100" : "max-h-0 py-0 opacity-0 border-transparent"}`}>{faq.a}</div>
-              </div>
-            </ScrollReveal>
-          ))}
         </div>
       </section>
 

@@ -1,14 +1,10 @@
 import type { Metadata } from "next";
-import { Space_Grotesk } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
-const space = Space_Grotesk({ 
-  subsets: ["latin"], 
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-space" 
-});
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
   title: "Snnlies | The Future of Automation",
@@ -22,9 +18,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="bg-black">
-      <body className={`${space.variable} font-sans bg-black text-white min-h-screen flex flex-col selection:bg-white selection:text-black antialiased`}>
+      <body className={`${inter.variable} font-sans bg-black text-white min-h-screen flex flex-col selection:bg-white selection:text-black antialiased`}>
         <Navbar />
-        <main className="flex-grow w-full pt-16">
+        <main className="flex-grow w-full pt-28">
           {children}
         </main>
         <Footer />

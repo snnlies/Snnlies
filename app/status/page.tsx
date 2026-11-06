@@ -1,26 +1,36 @@
 export default function Status() {
   const services = [
-    { name: "Discord Bot", status: "Operational" },
+    { name: "Snnlies Bot", status: "Operational" },
+    { name: "Agent Engine", status: "Operational" },
+    { name: "Authentication", status: "Operational" },
     { name: "Web Dashboard", status: "Operational" },
-    { name: "AI Engine", status: "Operational" },
     { name: "Database", status: "Operational" },
   ];
 
   return (
-    <div className="w-full max-w-3xl mx-auto px-6 py-24 relative z-10">
-      <h1 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight text-white">System Status</h1>
-      <div className="flex items-center gap-3 mb-12">
-        <div className="w-3 h-3 rounded-full bg-green-500 animate-pulse"></div>
-        <p className="text-green-500 font-medium">All systems operational</p>
+    <div className="w-full max-w-4xl mx-auto px-6 py-12 relative z-10">
+      
+      {/* Alert Bar */}
+      <div className="w-full bg-black border border-neutral-800 p-4 rounded-xl mb-12 flex items-center gap-3">
+        <div className="w-2 h-2 rounded-full bg-white animate-pulse"></div>
+        <p className="text-white text-sm font-medium">All systems are operating normally.</p>
       </div>
-      <div className="space-y-4">
-        {services.map((s, i) => (
-          <div key={i} className="flex justify-between items-center p-5 border border-neutral-800 rounded-xl bg-neutral-950">
-            <span className="text-white font-medium">{s.name}</span>
-            <span className="text-neutral-400 text-sm">{s.status}</span>
+
+      <h1 className="text-3xl md:text-5xl font-bold text-white mb-2 tracking-tight">System Status</h1>
+      <p className="text-white text-sm mb-12">Live status of Snnlies infrastructure.</p>
+
+      <div className="border border-neutral-800 rounded-2xl overflow-hidden">
+        {services.map((service, i) => (
+          <div key={i} className={`flex items-center justify-between p-6 bg-neutral-950 ${i !== services.length - 1 ? 'border-b border-neutral-800' : ''}`}>
+            <span className="text-white font-medium">{service.name}</span>
+            <div className="flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-green-500"></span>
+              <span className="text-white text-sm">{service.status}</span>
+            </div>
           </div>
         ))}
       </div>
+      
     </div>
   );
 }
