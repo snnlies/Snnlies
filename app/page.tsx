@@ -5,59 +5,35 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="flex flex-col items-center w-full overflow-hidden relative bg-[#F9FAFB]">
-      <section className="w-full max-w-5xl mx-auto px-6 py-20 text-center flex flex-col items-center relative z-10 min-h-[85vh] justify-center">
+    <div className="flex flex-col items-center w-full overflow-hidden relative bg-[#FAFAFA]">
+      <section className="w-full max-w-6xl mx-auto px-6 py-24 text-center flex flex-col items-center relative z-10 min-h-[85vh] justify-center">
         
-        <div className="relative mb-8">
-           {/* Soft mesh glow behind text */}
-           <div className="absolute inset-0 bg-gradient-to-r from-blue-200 via-purple-200 to-pink-200 blur-[80px] opacity-40 rounded-full"></div>
-           <ScrollReveal>
-            <h1 className="text-5xl sm:text-7xl font-bold leading-[1.1] tracking-tight text-black relative z-10">
-              Magic GPT
-            </h1>
-          </ScrollReveal>
-        </div>
-
+        <ScrollReveal>
+          <h1 className="text-6xl sm:text-8xl md:text-[7rem] font-bold leading-[0.9] tracking-tighter text-black mb-8">
+            INFRASTRUCTURE <br /><span className="text-neutral-400">FOR DISCORD.</span>
+          </h1>
+        </ScrollReveal>
+        
         <ScrollReveal delay={200}>
-          <p className="text-neutral-500 text-lg md:text-xl max-w-lg mb-12 leading-relaxed font-medium">
-            Tell us what you need, and we'll handle the rest. Build your Discord server in seconds.
+          <p className="text-neutral-600 text-base md:text-xl max-w-2xl mb-12 leading-relaxed font-medium">
+            Deploy enterprise-grade automation, AI moderation, and massive server structures in seconds. Built for scale.
           </p>
         </ScrollReveal>
         
-        {/* Large Action Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full max-w-4xl mb-12">
-          <ScrollReveal delay={300}>
-            <Link href="/templates" className="flex flex-col items-start p-6 bg-gradient-to-br from-blue-100 to-purple-100 rounded-[2rem] h-48 hover:scale-105 transition-transform duration-300 shadow-sm border border-white/50 relative overflow-hidden group">
-               <span className="text-blue-900 font-bold text-lg z-10">Create<br/>Gaming Server</span>
-               <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-blue-400/20 rounded-full blur-xl group-hover:bg-blue-400/40 transition-colors"></div>
-            </Link>
-          </ScrollReveal>
-
-          <ScrollReveal delay={400}>
-            <Link href="/templates" className="flex flex-col items-start p-6 bg-gradient-to-br from-pink-100 to-orange-100 rounded-[2rem] h-48 hover:scale-105 transition-transform duration-300 shadow-sm border border-white/50 relative overflow-hidden group">
-               <span className="text-pink-900 font-bold text-lg z-10">Create<br/>Community</span>
-               <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-pink-400/20 rounded-full blur-xl group-hover:bg-pink-400/40 transition-colors"></div>
-            </Link>
-          </ScrollReveal>
-
-          <ScrollReveal delay={500}>
-            <Link href="/chat" className="flex flex-col items-start p-6 bg-gradient-to-br from-green-100 to-teal-100 rounded-[2rem] h-48 hover:scale-105 transition-transform duration-300 shadow-sm border border-white/50 relative overflow-hidden group">
-               <span className="text-green-900 font-bold text-lg z-10">Ask AI<br/>Anything</span>
-               <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-green-400/20 rounded-full blur-xl group-hover:bg-green-400/40 transition-colors"></div>
-            </Link>
-          </ScrollReveal>
-        </div>
-
-        {/* Input Pill (Mockup for Home) */}
-        <ScrollReveal delay={600}>
-          <Link href="/chat" className="w-full max-w-2xl bg-white border border-neutral-200 rounded-full px-6 py-4 flex items-center justify-between shadow-lg hover:shadow-xl transition-shadow">
-            <span className="text-neutral-400 font-medium">Ask me anything...</span>
-            <div className="w-10 h-10 bg-blue-100 text-blue-500 rounded-full flex items-center justify-center">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-5 h-5"><path strokeLinecap="round" strokeLinejoin="round" d="M12 18.75a6 6 0 0 0 6-6v-1.5m-6 7.5a6 6 0 0 1-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 0 1-3-3V4.5a3 3 0 1 1 6 0v8.25a3 3 0 0 1-3 3Z" /></svg>
-            </div>
+        {/* The Sliding Button You Liked */}
+        <ScrollReveal delay={400}>
+          <Link href="/chat" className="group relative flex items-center p-1.5 bg-[#EBEBEB] rounded-full transition-all duration-300 hover:bg-[#E0E0E0] shadow-sm">
+            <span className="flex items-center justify-center bg-white px-8 py-3.5 rounded-full shadow-[0_2px_10px_rgba(0,0,0,0.05)] text-black font-semibold text-lg transition-transform duration-300 group-hover:scale-105">
+              Get Started
+            </span>
+            <span className="pl-4 pr-3 text-black transition-transform duration-300 group-hover:translate-x-1">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-6 h-6">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+              </svg>
+            </span>
           </Link>
         </ScrollReveal>
-
+        
       </section>
       <Footer />
     </div>
