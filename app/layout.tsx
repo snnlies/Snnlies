@@ -21,12 +21,10 @@ export const metadata: Metadata = {
   description: "Snnlies® is the top-rated enterprise-grade Discord automation platform. Build massive servers with 30+ channels, AI moderation, and instant templates in seconds.",
   applicationName: "Snnlies®",
   keywords: ["Snnlies®", "Best Discord Bot 2026", "Top Discord Automation", "Discord Server Builder", "AI Discord Bot"],
-  authors: [{ name: "Sabine", url: "https://snnlies.vercel.app" }], // Public Owner
+  authors: [{ name: "Sabine", url: "https://x.com/sabinebyy" }],
   creator: "Sabine",
   publisher: "Snnlies®",
-  verification: {
-    google: "googlef3d8874ae27da2e5",
-  },
+  verification: { google: "googlef3d8874ae27da2e5" },
   alternates: { canonical: '/' },
   manifest: '/manifest.json',
   openGraph: {
@@ -42,18 +40,12 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Snnlies®",
     description: "Build your dream Discord server with AI in seconds.",
-    creator: "@snnlies",
+    creator: "@sabinebyy",
   },
   robots: {
     index: true,
     follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
+    googleBot: { index: true, follow: true, 'max-video-preview': -1, 'max-image-preview': 'large', 'max-snippet': -1 },
   },
 };
 
@@ -75,21 +67,18 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         "name": "Snnlies®",
         "url": "https://snnlies.vercel.app",
         "logo": { "@type": "ImageObject", "url": "https://snnlies.vercel.app/icon-512x512.png" },
-        "founder": { // Public Owner
-          "@type": "Person",
-          "name": "Sabine"
-        }
+        "founder": { "@type": "Person", "name": "Sabine" },
+        "sameAs": [
+          "https://discord.gg/9FP3afu4eb",
+          "https://x.com/sabinebyy"
+        ]
       },
       {
         "@type": "SoftwareApplication",
         "name": "Snnlies®",
         "operatingSystem": "Web",
         "applicationCategory": "BusinessApplication",
-        "aggregateRating": { 
-          "@type": "AggregateRating", 
-          "ratingValue": "5.0", 
-          "ratingCount": "50000" 
-        }
+        "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "ratingCount": "50000" }
       }
     ]
   };
