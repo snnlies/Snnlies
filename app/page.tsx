@@ -1,51 +1,8 @@
 "use client";
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
 
 export default function Home() {
-  // Pre-existing messages so it feels like a real chat
-  const [messages, setMessages] = useState<{ role: string; content: string }[]>([
-    { role: "ai", content: "Hello! I am Snnlies AI. I can help you manage your Discord server, generate ideas, or just have a conversation. How can I help you today?" }
-  ]);
-  const [input, setInput] = useState("");
-  const [loading, setLoading] = useState(false);
   const [faqOpen, setFaqOpen] = useState<number | null>(null);
-  
-  const chatEndRef = useRef<HTMLDivElement>(null);
-
-  // Auto-scroll to bottom when new messages arrive
-  useEffect(() => {
-    chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [messages]);
-
-  // Limit logic: Max 3 user messages
-  const userMessageCount = messages.filter(m => m.role === "user").length;
-  const isLimitReached = userMessageCount >= 3;
-
-  const sendMessage = async () => {
-    if (!input.trim() || loading || isLimitReached) return;
-    
-    const userMessage = { role: "user", content: input };
-    setMessages((prev) => [...prev, userMessage]);
-    setInput("");
-    setLoading(true);
-
-    try {
-      const res = await fetch("/api/chat", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message: input }),
-      });
-      const data = await res.json();
-      
-      if (data.reply) {
-        setMessages((prev) => [...prev, { role: "ai", content: data.reply }]);
-      }
-    } catch (error) {
-      setMessages((prev) => [...prev, { role: "ai", content: "Sorry, I am having trouble connecting right now." }]);
-    } finally {
-      setLoading(false);
-    }
-  };
 
   const faqs = [
     { q: "What exactly is Snnlies?", a: "Snnlies is a premium, enterprise-grade Discord bot designed to elevate your server. It combines advanced automation, next-generation moderation, and a powerful AI engine to keep your community engaged." },
@@ -70,9 +27,9 @@ export default function Home() {
         </p>
       </section>
 
-      {/* 2. AI CHAT DEMO SECTION */}
+      {/* 2. AI CHAT DEMO SECTION (MOCKUP CTA) */}
       <section className="w-full max-w-3xl mx-auto px-4 pb-24 relative z-10">
-        <div className="w-full flex flex-col bg-black/60 backdrop-blur-xl border border-neutral-800 rounded-3xl overflow-hidden shadow-2xl">
+        <div className="w-full flex flex-col bg-black/60 backdrop-blur-xl border border-neutral-800 rounded-3xl overflow-hidden shadow-2xl relative">
           
           {/* Chat Header */}
           <div className="bg-neutral-900/80 px-6 py-4 border-b border-neutral-800 flex items-center justify-between">
@@ -83,78 +40,49 @@ export default function Home() {
               </div>
               <div>
                 <h3 className="text-white font-semibold text-sm">Snnlies AI</h3>
-                <p className="text-neutral-500 text-xs">Online & Ready</p>
+                <p className="text-neutral-500 text-xs">Always Online</p>
               </div>
             </div>
             <div className="text-xs font-medium text-neutral-500 bg-neutral-950 px-3 py-1 rounded-full border border-neutral-800">
-              Free Trial
+              Live Preview
             </div>
           </div>
 
-          {/* Chat Messages Area */}
-          <div className="flex-grow overflow-y-auto p-6 space-y-6 h-[350px] scroll-smooth">
-            {messages.map((msg, i) => (
-              <div key={i} className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}>
-                {msg.role === "ai" && (
-                  <div className="w-8 h-8 rounded-full bg-white text-black flex items-center justify-center font-bold text-xs mr-3 shrink-0 mt-1">S</div>
-                )}
-                <div className={`px-5 py-3 rounded-2xl max-w-[80%] text-sm leading-relaxed ${
-                  msg.role === "user" 
-                    ? "bg-white text-black rounded-tr-sm" 
-                    : "bg-neutral-900 border border-neutral-800 text-neutral-200 rounded-tl-sm"
-                }`}>
-                  {msg.content}
-                </div>
+          {/* Chat Messages Area (Static Mockup) */}
+          <div className="flex-grow p-6 space-y-6 h-[350px] overflow-hidden relative">
+            {/* Message 1 */}
+            <div className="flex justify-start">
+              <div className="w-8 h-8 rounded-full bg-white text-black flex items-center justify-center font-bold text-xs mr-3 shrink-0 mt-1">S</div>
+              <div className="px-5 py-3 rounded-2xl bg-neutral-900 border border-neutral-800 text-neutral-200 rounded-tl-sm text-sm max-w-[80%]">
+                Hello! I am Snnlies AI. I can help you manage your Discord server, generate ideas, or just have a conversation. How can I help you today?
               </div>
-            ))}
-            
-            {loading && (
-              <div className="flex justify-start items-end">
-                <div className="w-8 h-8 rounded-full bg-white text-black flex items-center justify-center font-bold text-xs mr-3 shrink-0">S</div>
-                <div className="px-5 py-4 rounded-2xl bg-neutral-900 border border-neutral-800 rounded-tl-sm flex gap-1">
-                  <span className="w-2 h-2 bg-neutral-500 rounded-full animate-bounce"></span>
-                  <span className="w-2 h-2 bg-neutral-500 rounded-full animate-bounce delay-100"></span>
-                  <span className="w-2 h-2 bg-neutral-500 rounded-full animate-bounce delay-200"></span>
-                </div>
+            </div>
+
+            {/* Message 2 */}
+            <div className="flex justify-end">
+              <div className="px-5 py-3 rounded-2xl bg-white text-black font-medium rounded-tr-sm text-sm max-w-[80%]">
+                Can you help me set up auto-moderation and custom welcome messages?
               </div>
-            )}
-            <div ref={chatEndRef} />
+            </div>
+
+            {/* Message 3 */}
+            <div className="flex justify-start">
+              <div className="w-8 h-8 rounded-full bg-white text-black flex items-center justify-center font-bold text-xs mr-3 shrink-0 mt-1">S</div>
+              <div className="px-5 py-3 rounded-2xl bg-neutral-900 border border-neutral-800 text-neutral-200 rounded-tl-sm text-sm max-w-[80%]">
+                Absolutely! I can handle anti-spam, set up detailed logging, and even generate custom AI welcome images. Want to try it on your server?
+              </div>
+            </div>
+
+            {/* Fade effect at the bottom of messages to blend into CTA */}
+            <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-black to-transparent"></div>
           </div>
 
-          {/* Chat Input Area / Limit Paywall */}
-          <div className="p-4 bg-neutral-950/80 border-t border-neutral-800">
-            {isLimitReached ? (
-              <div className="text-center p-4 bg-neutral-900 border border-neutral-800 rounded-2xl">
-                <p className="text-white font-medium mb-3">You have reached the free trial limit.</p>
-                <a href="/login" className="inline-block px-6 py-2 bg-white text-black font-bold rounded-full hover:bg-neutral-200 transition text-sm">
-                  Login to Continue Chatting
-                </a>
-              </div>
-            ) : (
-              <div className="relative flex items-center">
-                <input
-                  type="text" 
-                  value={input} 
-                  onChange={(e) => setInput(e.target.value)}
-                  onKeyDown={(e) => e.key === "Enter" && sendMessage()}
-                  placeholder="Message Snnlies AI..."
-                  className="w-full bg-neutral-900 text-white border border-neutral-800 rounded-full pl-6 pr-14 py-4 outline-none focus:border-neutral-500 transition text-sm"
-                  disabled={loading}
-                />
-                <button 
-                  onClick={sendMessage} 
-                  disabled={loading || !input.trim()} 
-                  className="absolute right-2 bg-white text-black p-2 rounded-full hover:bg-neutral-200 transition disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
-                    <path d="M3.478 2.404a.75.75 0 0 0-.926.941l2.432 7.905H13.5a.75.75 0 0 1 0 1.5H4.984l-2.432 7.905a.75.75 0 0 0 .926.94 60.519 60.519 0 0 0 18.445-8.986.75.75 0 0 0 0-1.218A60.517 60.517 0 0 0 3.478 2.404Z" />
-                  </svg>
-                </button>
-              </div>
-            )}
-            <p className="text-center text-neutral-600 text-xs mt-3">
-              {3 - userMessageCount} free messages remaining. <a href="/login" className="underline hover:text-white">Login</a> for unlimited access.
-            </p>
+          {/* Chat Input Area (CTA Instead of Input) */}
+          <div className="p-6 bg-neutral-950/90 border-t border-neutral-800 text-center relative z-20">
+            <p className="text-neutral-400 text-sm mb-4">Experience the full power of Snnlies AI on your server.</p>
+            <a href="/login" className="inline-flex items-center justify-center w-full px-8 py-4 bg-white text-black font-bold rounded-full hover:bg-neutral-200 transition-all shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_30px_rgba(255,255,255,0.3)]">
+              Login to Start Chatting
+            </a>
           </div>
         </div>
       </section>
