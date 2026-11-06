@@ -3,11 +3,14 @@ import { NextResponse } from 'next/server';
 export async function POST(req: Request) {
   try {
     const { guildId, templateName } = await req.json();
-    const BOT_API_URL = 'https://df4e2b9941b1da.lhr.life/api/deploy';
+    const BOT_API_URL = 'https://augmented-resisting-custard.ngrok-free.dev/api/deploy';
 
     const response = await fetch(BOT_API_URL, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 
+        'Content-Type': 'application/json',
+        'ngrok-skip-browser-warning': 'true' 
+      },
       body: JSON.stringify({
         guildId,
         templateName,
