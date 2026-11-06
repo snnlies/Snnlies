@@ -1,10 +1,28 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { playClickSound } from "../utils/sound";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [showNavbar, setShowNavbar] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      // Hide on scroll down, show on scroll up
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        setShowNavbar(false);
+      } else {
+        setShowNavbar(true);
+      }
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
 
   const navLinks = [
     { name: "AI Workspace", href: "/chat" },
@@ -15,11 +33,14 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="fixed top-6 left-0 w-full z-50 flex justify-center px-4">
-        <div className="bg-white/90 backdrop-blur-xl border border-neutral-200 rounded-full px-6 md:px-8 py-3.5 flex justify-between items-center w-full max-w-5xl apple-shadow transition-all duration-[1000ms] relative z-50">
-          <Link href="/" onClick={playClickSound} className="text-xl font-bold tracking-tight text-black hover:opacity-70 transition-opacity duration-[1500ms]">Snnlies</Link>
+      <nav 
+        className={`fixed top-0 left-0 w-full z-50 flex justify-center px-4 pt-6 transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] ${
+          showNavbar ? "translate-y-0" : "-translate-y-[150%]"
+        }`}
+      >
+        <div className="bg-white/90 backdrop-blur-xl border border-neutral-200 rounded-full px-6 md:px-8 py-3.5 flex justify-between items-center w-full max-w-5xl apple-shadow relative z-50">
+          <Link href="/" onClick={playClickSound} className="text-xl font-bold tracking-tight text-black hover:opacity-70 transition-opacity duration-[1000ms]">Snnlies</Link>
           
-          {/* Desktop Links */}
           <div className="hidden md:flex items-center gap-8 text-sm font-semibold text-black">
             {navLinks.map((link) => (
               <Link key={link.name} href={link.href} onClick={playClickSound} className="relative group py-2">
@@ -59,37 +80,20 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* Mobile Popup Menu (Not Full Screen) */}
+      {/* Mobile Popup Menu */}
       {isOpen && (
         <>
-          {/* Slight dim background overlay */}
-          <div 
-            className="fixed inset-0 z-40 bg-black/10 backdrop-blur-sm animate-in fade-in duration-[1000ms]" 
-            onClick={() => { playClickSound(); setIsOpen(false); }}
-          ></div>
-
-          {/* Popup Box Under Navbar */}
+          <div className="fixed inset-0 z-40 bg-black/10 backdrop-blur-sm animate-in fade-in duration-[1000ms]" onClick={() => { playClickSound(); setIsOpen(false); }}></div>
           <div className="fixed top-24 left-4 right-4 z-50 md:hidden animate-in fade-in zoom-in-95 duration-[1000ms] origin-top">
             <div className="bg-white/95 backdrop-blur-2xl border border-neutral-200 rounded-[2rem] p-6 shadow-2xl">
               <div className="flex flex-col gap-5">
                 {navLinks.map((link, i) => (
-                  <Link 
-                    key={link.name} 
-                    href={link.href} 
-                    onClick={() => { playClickSound(); setIsOpen(false); }} 
-                    className="text-2xl font-semibold text-black hover:text-neutral-500 transition-colors duration-500"
-                    style={{ animationDelay: (i * 100) + 'ms' }}
-                  >
-                    {link.name}
-                  </Link>
+                  <Link key={link.name} href={link.href} onClick={() => { playClickSound(); setIsOpen(false); }} className="text-2xl font-semibold text-black hover:text-neutral-500 transition-colors duration-500" style={{ animationDelay: (i * 100) + 'ms' }}>{link.name}</Link>
                 ))}
-                
                 <div className="h-[1px] bg-neutral-200 my-2"></div>
-                
                 <Link href="/news" onClick={() => { playClickSound(); setIsOpen(false); }} className="text-xl font-medium text-neutral-600 hover:text-black transition-colors duration-500">News</Link>
                 <Link href="/updates" onClick={() => { playClickSound(); setIsOpen(false); }} className="text-xl font-medium text-neutral-600 hover:text-black transition-colors duration-500">Updates</Link>
                 <Link href="/status" onClick={() => { playClickSound(); setIsOpen(false); }} className="text-xl font-medium text-neutral-600 hover:text-black transition-colors duration-500">Status</Link>
-                
                 <div className="flex flex-col gap-3 mt-4">
                   <Link href="/login" onClick={() => { playClickSound(); setIsOpen(false); }} className="w-full text-center py-3.5 bg-neutral-100 text-black font-semibold rounded-full hover:bg-neutral-200 transition-colors duration-500">Sign in</Link>
                   <Link href="/signup" onClick={() => { playClickSound(); setIsOpen(false); }} className="w-full text-center py-3.5 bg-black text-white font-semibold rounded-full shadow-md hover:bg-neutral-800 transition-colors duration-500">Get Started</Link>
