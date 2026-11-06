@@ -12,10 +12,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className="bg-black">
-      <body className={`${space.variable} font-sans bg-black text-white min-h-screen flex flex-col antialiased`}>
+    <html lang="en" className="bg-white">
+      <body className={`${space.variable} font-sans bg-white text-black min-h-screen flex flex-col antialiased`}>
         <Navbar />
-        <main className="flex-grow w-full pt-24">{children}</main>
+        <main className="flex-grow w-full pt-28">{children}</main>
       </body>
     </html>
   );
