@@ -1,32 +1,19 @@
+"use client";
+import { useState, useEffect } from "react";
 export default function Status() {
-  const services = [
-    { name: "Snnlies Bot", status: "Operational" },
-    { name: "Agent Engine", status: "Operational" },
-    { name: "Authentication", status: "Operational" },
-    { name: "Web Dashboard", status: "Operational" },
-    { name: "Database", status: "Operational" },
-  ];
-
+  const [status, setStatus] = useState({ online: false, ping: 0, uptime: 0, guilds: 0, users: 0 });
+  useEffect(() => { fetch('/api/data?endpoint=/api/status').then(r => r.json()).then(d => setStatus(d)); }, []);
   return (
-    <div className="w-full max-w-4xl mx-auto px-6 py-16 relative z-10 bg-white min-h-screen">
-      <div className="w-full bg-green-50 border border-green-200 p-4 rounded-xl mb-12 flex items-center gap-3 shadow-sm">
-        <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-        <p className="text-green-800 text-sm font-bold">All systems are operating normally.</p>
+    <div className="w-full max-w-4xl mx-auto px-6 py-16">
+      <div className={`p-4 rounded-xl mb-12 flex items-center gap-3 ${status.online ? 'bg-green-50 border-green-200' : 'bg-red-50 border-red-200'} border`}>
+        <div className={`w-3 h-3 rounded-full ${status.online ? 'bg-green-500' : 'bg-red-500'}`}></div>
+        <p className="font-bold">{status.online ? "All Systems Operational" : "System Outage"}</p>
       </div>
-
-      <h1 className="text-3xl md:text-5xl font-bold text-black mb-2 tracking-tight">System Status</h1>
-      <p className="text-black font-medium mb-12">Live status of Snnlies infrastructure.</p>
-
-      <div className="border border-neutral-200 rounded-[2rem] overflow-hidden apple-shadow bg-white">
-        {services.map((service, i) => (
-          <div key={i} className={`flex items-center justify-between p-6 ${i !== services.length - 1 ? 'border-b border-neutral-200' : ''}`}>
-            <span className="text-black font-bold">{service.name}</span>
-            <div className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-green-500"></span>
-              <span className="text-black text-sm font-semibold">{service.status}</span>
-            </div>
-          </div>
-        ))}
+      <div className="grid gap-4">
+        <div className="p-6 border border-neutral-200 rounded-2xl flex justify-between"><span>Discord Bot</span><span className="font-bold">{status.online ? "Online" : "Offline"}</span></div>
+        <div className="p-6 border border-neutral-200 rounded-2xl flex justify-between"><span>API Latency</span><span className="font-bold">{status.ping}ms</span></div>
+        <div className="p-6 border border-neutral-200 rounded-2xl flex justify-between"><span>Total Servers</span><span className="font-bold">{status.guilds}</span></div>
+        <div className="p-6 border border-neutral-200 rounded-2xl flex justify-between"><span>Total Users</span><span className="font-bold">{status.users}</span></div>
       </div>
     </div>
   );
