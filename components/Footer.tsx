@@ -47,7 +47,7 @@ export default function Footer() {
           {/* Real Social Links */}
           <div className="flex items-center gap-4 mt-4 md:mt-0">
             <a 
-              href="https://discord.gg/9FP3afu4eb" 
+              href="https://discord.gg/N2QKNV8Hys" 
               target="_blank" 
               rel="noreferrer"
               onClick={playClickSound}

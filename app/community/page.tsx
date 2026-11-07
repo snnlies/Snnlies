@@ -15,7 +15,7 @@ export default function Community() {
       <h1 className="text-4xl font-bold text-black mb-4">Community Hub</h1>
       <p className="text-neutral-600 text-lg mb-8">Meet other server owners, share what you are building, and shape what Snnlies does next.</p>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-        <a href="https://discord.gg/9FP3afu4eb" target="_blank" rel="noreferrer" className="bg-white p-6 border border-neutral-200 rounded-3xl shadow-sm hover:shadow-md transition-shadow">
+        <a href="https://discord.gg/N2QKNV8Hys" target="_blank" rel="noreferrer" className="bg-white p-6 border border-neutral-200 rounded-3xl shadow-sm hover:shadow-md transition-shadow">
           <h2 className="text-xl font-bold text-black mb-2">Join the Discord Server</h2>
           <p className="text-neutral-600 text-sm">Chat with the team and other community owners, get announcements first, and vote on the roadmap.</p>
         </a>
