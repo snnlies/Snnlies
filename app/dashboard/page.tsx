@@ -36,7 +36,7 @@ export default function Dashboard() {
     try {
       const res = await fetch('/api/data?endpoint=/api/broadcast', {
         method: 'POST', headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message: news, secret: 'snnlies_super_secret_2026' })
+        body: JSON.stringify({ message: news })
       });
       const data = await res.json();
       if (data.success) { playSound('success'); setToast({ msg: data.message, type: 'success' }); setNews(""); }

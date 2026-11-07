@@ -48,7 +48,7 @@ export default function Templates() {
     try {
       const res = await fetch('/api/data?endpoint=/api/deploy', {
         method: 'POST', headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ guildId: selectedServer, template: activeTemplate, secret: 'snnlies_super_secret_2026' })
+        body: JSON.stringify({ guildId: selectedServer, template: activeTemplate })
       });
       const data = await res.json();
       if (data.success) { playSound('success'); setToast({ msg: data.message, type: "success" }); setActiveTemplate(null); } 
