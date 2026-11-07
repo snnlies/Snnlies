@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import Navbar from "../components/Navbar";
+import CookieBanner from "../components/CookieBanner";
 
 const space = Space_Grotesk({ subsets: ["latin"], weight: ["400", "500", "600", "700"], variable: "--font-space" });
 
@@ -60,6 +61,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <body suppressHydrationWarning className={`${space.variable} font-sans bg-white text-black min-h-screen flex flex-col antialiased`}>
         <Navbar />
         <main className="flex-grow w-full pt-28 bg-white">{children}</main>
+        <CookieBanner />
       </body>
     </html>
   );
