@@ -30,7 +30,7 @@ export default function Navbar() {
   return (
     <>
       <nav className="fixed top-6 left-0 w-full z-50 flex justify-center px-4">
-        <div className="bg-white/90 backdrop-blur-xl border border-neutral-200 rounded-full px-6 md:px-8 py-3.5 flex justify-between items-center w-full max-w-6xl shadow-lg">
+        <div className="bg-white/90 backdrop-blur-xl border border-neutral-200 rounded-full px-6 md:px-8 py-3.5 flex justify-between items-center w-full max-w-6xl shadow-lg apple-shadow shadow-lg">
           
           <Link href="/" onClick={playClickSound} className="text-xl font-bold tracking-tight text-black">Snnlies</Link>
           
