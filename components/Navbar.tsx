@@ -66,6 +66,7 @@ export default function Navbar() {
 
           {/* DESKTOP AUTH */}
           <div className="hidden lg:flex items-center gap-4">
+            <a href="https://discord.com/oauth2/authorize?client_id=1568201630112030760&permissions=8&integration_type=0&scope=bot+applications.commands" target="_blank" rel="noreferrer" onClick={() => playSound('tap')} className="px-6 py-2.5 bg-[#5865F2] text-white text-sm font-semibold rounded-full hover:bg-[#4752C4] transition-colors shadow-md">Add Bot</a>
             {mounted && isLoggedIn ? (
               <>
                 <Link href="/dashboard" onClick={() => playSound('tap')} className="text-sm font-semibold text-neutral-500 hover:text-black transition-colors">Dashboard</Link>
@@ -94,6 +95,7 @@ export default function Navbar() {
           <div className="fixed top-24 left-4 right-4 z-50 lg:hidden animate-in fade-in zoom-in-95 duration-300 origin-top">
             <div className="bg-white/95 backdrop-blur-2xl border border-neutral-200 rounded-[2rem] p-6 shadow-2xl max-h-[80vh] overflow-y-auto">
               <div className="flex flex-col gap-5">
+                <a href="https://discord.com/oauth2/authorize?client_id=1568201630112030760&permissions=8&integration_type=0&scope=bot+applications.commands" target="_blank" rel="noreferrer" onClick={closeMenu} className="text-2xl font-semibold text-[#5865F2] hover:text-[#4752C4] transition-colors">Add Bot to Discord</a>
                 <Link href="/chat" onClick={closeMenu} className="text-2xl font-semibold text-black hover:text-neutral-500 transition-colors">AI Workspace</Link>
                 <Link href="/templates" onClick={closeMenu} className="text-2xl font-semibold text-black hover:text-neutral-500 transition-colors">Templates</Link>
                 <Link href="/community" onClick={closeMenu} className="text-2xl font-semibold text-black hover:text-neutral-500 transition-colors">Community</Link>

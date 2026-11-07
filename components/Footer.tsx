@@ -10,6 +10,7 @@ export default function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
           <div className="flex flex-col gap-4">
             <h4 className="text-black font-bold text-base mb-2">Products</h4>
+            <a href="https://discord.com/oauth2/authorize?client_id=1568201630112030760&permissions=8&integration_type=0&scope=bot+applications.commands" target="_blank" rel="noreferrer" onClick={playClickSound} className="text-black hover:text-neutral-500 transition-colors duration-500 text-sm font-medium">Add Bot</a>
             <Link href="/chat" onClick={playClickSound} className="text-black hover:text-neutral-500 transition-colors duration-500 text-sm font-medium">AI Workspace</Link>
             <Link href="/templates" onClick={playClickSound} className="text-black hover:text-neutral-500 transition-colors duration-500 text-sm font-medium">Templates</Link>
             <Link href="/dashboard" onClick={playClickSound} className="text-black hover:text-neutral-500 transition-colors duration-500 text-sm font-medium">Dashboard</Link>

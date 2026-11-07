@@ -33,6 +33,9 @@ export default function Home() {
         
         <ScrollReveal delay={400}>
           <div className="flex gap-4 flex-col sm:flex-row w-full sm:w-auto px-4 sm:px-0">
+            <a href="https://discord.com/oauth2/authorize?client_id=1568201630112030760&permissions=8&integration_type=0&scope=bot+applications.commands" target="_blank" rel="noreferrer" onClick={playClickSound} className="px-10 py-4 bg-[#5865F2] text-white font-semibold text-lg rounded-full hover:scale-105 transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] shadow-[0_8px_20px_rgba(88,101,242,0.35)] text-center w-full sm:w-auto">
+              Add to Discord
+            </a>
             <Link href="/chat" onClick={playClickSound} className="px-10 py-4 bg-gradient-to-b from-blue-400 to-blue-500 text-white font-semibold text-lg rounded-full hover:scale-105 transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] shadow-[0_8px_20px_rgba(59,130,246,0.3)] text-center w-full sm:w-auto">
               Try AI Workspace
             </Link>
