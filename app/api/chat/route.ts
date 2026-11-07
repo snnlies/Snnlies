@@ -11,7 +11,7 @@ export async function POST(req: Request) {
     }
 
     const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
-    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+    const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
 
     // System prompt to make the AI act like a server architect
     const prompt = `You are Snnlies AI, an expert Discord server architect. The user is asking you to build a server. Respond professionally and concisely. If they ask for a specific type of server (like gaming, crypto, etc.), confirm you have generated the layout. Do not output raw JSON, just respond naturally.\n\nUser: ${message}`;
