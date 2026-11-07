@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-const TUNNEL_URL = 'PLACEHOLDER_URL';
+const TUNNEL_URL = 'https://6175156f110cc7.lhr.life';
 
 export async function POST(req: Request) {
   try {
