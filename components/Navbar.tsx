@@ -53,7 +53,8 @@ export default function Navbar() {
               {dropdown && (
                 <div className="absolute top-full left-1/2 -translate-x-1/2 w-48 pt-4 animate-in fade-in duration-200">
                   <div className="bg-white border border-neutral-200 rounded-2xl p-2 shadow-xl flex flex-col">
-                    <Link href="/updates" onClick={() => playSound('tap')} className="block px-4 py-2 text-black hover:bg-neutral-50 rounded-xl">Updates</Link>
+                    <Link href="/whats-new" onClick={() => playSound('tap')} className="block px-4 py-2 text-black hover:bg-neutral-50 rounded-xl">What's New</Link>
+                    <Link href="/whats-next" onClick={() => playSound('tap')} className="block px-4 py-2 text-black hover:bg-neutral-50 rounded-xl">What's Next</Link>
                     <Link href="/news" onClick={() => playSound('tap')} className="block px-4 py-2 text-black hover:bg-neutral-50 rounded-xl">News</Link>
                     <Link href="/status" onClick={() => playSound('tap')} className="block px-4 py-2 text-black hover:bg-neutral-50 rounded-xl">Status</Link>
                     <Link href="/blog" onClick={() => playSound('tap')} className="block px-4 py-2 text-black hover:bg-neutral-50 rounded-xl">Blog</Link>
@@ -105,7 +106,8 @@ export default function Navbar() {
                 
                 <p className="text-xs font-bold text-neutral-400 uppercase tracking-wider mb-2">Resources</p>
                 <div className="grid grid-cols-2 gap-4">
-                  <Link href="/updates" onClick={closeMenu} className="text-lg font-medium text-neutral-600 hover:text-black">Updates</Link>
+                  <Link href="/whats-new" onClick={closeMenu} className="text-lg font-medium text-neutral-600 hover:text-black">What's New</Link>
+                  <Link href="/whats-next" onClick={closeMenu} className="text-lg font-medium text-neutral-600 hover:text-black">What's Next</Link>
                   <Link href="/news" onClick={closeMenu} className="text-lg font-medium text-neutral-600 hover:text-black">News</Link>
                   <Link href="/status" onClick={closeMenu} className="text-lg font-medium text-neutral-600 hover:text-black">Status</Link>
                   <Link href="/blog" onClick={closeMenu} className="text-lg font-medium text-neutral-600 hover:text-black">Blog</Link>
