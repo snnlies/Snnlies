@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-const TUNNEL_URL = 'https://29ee701b7af885.lhr.life';
+const TUNNEL_URL = 'https://95786de9d955eb.lhr.life';
 export async function GET(req: Request) {
   const { searchParams } = new URL(req.url);
   const endpoint = searchParams.get('endpoint');
