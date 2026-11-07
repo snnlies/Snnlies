@@ -9,14 +9,23 @@ export default function Onboarding() {
   const [mainGoal, setMainGoal] = useState("");
   const router = useRouter();
 
-  const handleComplete = async () => {
+  const handleComplete = async (goal: string) => {
     playSound('success');
-    const getCookie = (name: string) => document.cookie.split('; ').find(row => row.startsWith(name + '='))?.split('=')[1];
+    setMainGoal(goal);
+    
+    const getCookie = (name: string) => {
+      const value = `; ${document.cookie}`;
+      const parts = value.split(`; ${name}=`);
+      if (parts.length === 2) return parts.pop()?.split(';').shift();
+      return null;
+    };
+
     const userId = getCookie("snnlies_session");
+    
     if (userId) {
       await fetch('/api/onboarding', {
         method: 'POST', headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ userId, serverType, mainGoal })
+        body: JSON.stringify({ userId, serverType, mainGoal: goal })
       });
     }
     router.push('/dashboard');
@@ -28,8 +37,8 @@ export default function Onboarding() {
         
         <div className="flex justify-between items-center mb-8">
           <div className="flex gap-2">
-            <div className={`w-2 h-2 rounded-full ${step >= 1 ? 'bg-black' : 'bg-neutral-200'}`}></div>
-            <div className={`w-2 h-2 rounded-full ${step >= 2 ? 'bg-black' : 'bg-neutral-200'}`}></div>
+            <div className={`w-2 h-2 rounded-full transition-colors ${step >= 1 ? 'bg-black' : 'bg-neutral-200'}`}></div>
+            <div className={`w-2 h-2 rounded-full transition-colors ${step >= 2 ? 'bg-black' : 'bg-neutral-200'}`}></div>
           </div>
           <button onClick={() => router.push('/dashboard')} className="text-xs font-bold text-neutral-400 hover:text-black">Skip</button>
         </div>
@@ -54,7 +63,7 @@ export default function Onboarding() {
             <p className="text-neutral-500 mb-8">How can Snnlies help you best?</p>
             <div className="flex flex-wrap gap-3">
               {['🚀 Build Fast', '🛡️ Auto-Mod', '🧠 AI Chatbot', '🎨 Custom Design'].map(opt => (
-                <button key={opt} onClick={() => { playSound('tap'); setMainGoal(opt); handleComplete(); }} className="px-5 py-3 rounded-full border border-neutral-200 bg-neutral-50 text-black font-semibold hover:border-black hover:bg-neutral-100 transition-all">
+                <button key={opt} onClick={() => handleComplete(opt)} className="px-5 py-3 rounded-full border border-neutral-200 bg-neutral-50 text-black font-semibold hover:border-black hover:bg-neutral-100 transition-all">
                   {opt}
                 </button>
               ))}
