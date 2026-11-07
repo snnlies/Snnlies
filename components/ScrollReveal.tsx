@@ -24,9 +24,9 @@ export default function ScrollReveal({ children, delay = 0 }: { children: React.
     <div
       ref={ref}
       style={{ transitionDelay: `${delay}ms` }}
-      // 2 seconds duration for cinematic slow reveal
-      className={`w-full flex justify-center transition-all duration-[2000ms] ${
-        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-16"
+      // Short reveal so content is visible quickly
+      className={`w-full flex justify-center transition-all duration-[600ms] ${
+        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
       }`}
     >
       {children}

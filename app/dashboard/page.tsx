@@ -2,8 +2,10 @@
 import { useState, useEffect } from "react";
 import { playSound } from "../../utils/sound";
 import WhatsNew from "../../components/WhatsNew";
+import { useRouter } from "next/navigation";
 
 export default function Dashboard() {
+  const router = useRouter();
   const [data, setData] = useState({ credits: 0 });
   const [status, setStatus] = useState({ online: false });
   const [loading, setLoading] = useState(true);
@@ -15,6 +17,7 @@ export default function Dashboard() {
     const getCookie = (name: string) => document.cookie.split('; ').find(row => row.startsWith(name + '='))?.split('=')[1];
     const userId = getCookie("snnlies_session");
 
+    if (!userId) { router.replace('/login'); return; }
     if (userId) {
       Promise.all([
         fetch(`/api/data?endpoint=/api/user&userId=${userId}`).then(r => r.json()),
@@ -24,7 +27,7 @@ export default function Dashboard() {
         if (statusData && !statusData.error) setStatus(statusData);
       }).catch(console.error).finally(() => setLoading(false));
     }
-  }, []);
+  }, [router]);
 
   const handleBroadcast = async () => {
     if (!news.trim()) return;

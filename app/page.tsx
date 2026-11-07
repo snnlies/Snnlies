@@ -103,7 +103,7 @@ export default function Home() {
           {faqs.map((faq, i) => (
             <ScrollReveal key={i} delay={i * 200}>
               <div className="border border-neutral-200 rounded-2xl bg-white overflow-hidden apple-shadow transition-shadow duration-700">
-                <button onClick={() => { playClickSound(); setFaqOpen(faqOpen === i ? null : i); }} className="w-full px-6 md:px-8 py-5 md:py-6 text-left flex justify-between items-center hover:bg-neutral-50 transition-colors duration-500">
+                <button onClick={() => { playClickSound(); setFaqOpen(faqOpen === i ? null : i); }} aria-expanded={faqOpen === i} className="w-full px-6 md:px-8 py-5 md:py-6 text-left flex justify-between items-center hover:bg-neutral-50 transition-colors duration-500">
                   <span className="font-bold text-black text-base md:text-lg">{faq.q}</span>
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2.5" stroke="currentColor" className={`w-5 h-5 text-black transition-transform duration-500 ease-out ${faqOpen === i ? "rotate-180" : ""}`}><path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" /></svg>
                 </button>

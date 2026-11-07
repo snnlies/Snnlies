@@ -13,12 +13,20 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://snnlies.vercel.app'),
-  title: "Snnlies® | The #1 Best Discord Automation",
+  title: {
+    default: "Snnlies® | The #1 Best Discord Automation",
+    template: "%s | Snnlies®",
+  },
   description: "Build massive servers with AI moderation and instant templates.",
+  alternates: { canonical: "/" },
+  manifest: "/manifest.json",
   // Browser tab logo (logo.png in public/, same image as app/icon.png)
   icons: {
-    icon: "/logo.png",
-    shortcut: "/logo.png",
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/logo.png", type: "image/png" },
+    ],
+    shortcut: "/favicon.ico",
     apple: "/logo.png",
   },
   // Social Media Sharing Banner (banner.png in public/)
@@ -30,8 +38,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: "/banner.png",
-        width: 735,
-        height: 245,
+        width: 1200,
+        height: 630,
         alt: "Snnlies Banner",
       },
     ],

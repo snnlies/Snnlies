@@ -1,9 +1,16 @@
+import type { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Features",
+  description: "Everything you need to run a premium Discord server: AI chat, moderation, dashboard and security.",
+  alternates: { canonical: "/features" },
+};
+
 export default function Features() {
   return (
     <div className="w-full max-w-6xl mx-auto px-6 py-24 relative z-10">
       <div className="text-center mb-16">
-        <h1 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight text-white">Mega Features</h1>
-        <p className="text-neutral-400 max-w-lg mx-auto font-light text-lg">Everything you need to run a premium Discord server, packed into one powerful bot.</p>
+        <h1 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight text-black">Mega Features</h1>
+        <p className="text-neutral-600 max-w-lg mx-auto text-lg">Everything you need to run a premium Discord server, packed into one powerful bot.</p>
       </div>
 
       {/* Bento Grid */}

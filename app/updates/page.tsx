@@ -1,3 +1,10 @@
+import type { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Product Updates",
+  description: "The latest features and improvements to Snnlies, by version.",
+  alternates: { canonical: "/updates" },
+};
+
 export default function Updates() {
   const updates = [
     { version: "v2.0.0", date: "Oct 24, 2026", title: "Live AI Workspace", desc: "Introduced the split-screen AI chat that generates Discord server structures in real-time.", color: "bg-black text-white" },

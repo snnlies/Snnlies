@@ -21,7 +21,7 @@ export default function Referral() {
         <div className="flex justify-center items-center -space-x-4 mb-8">
           {/* Mock 3D floating avatars */}
           <div className="w-20 h-24 bg-white/50 backdrop-blur-md rounded-[2rem] shadow-xl border border-white/50 transform -rotate-12 translate-y-4 flex items-center justify-center">
-            <img src="https://i.pravatar.cc/150?img=1" className="w-12 h-12 rounded-full opacity-50" alt="User" />
+            <div className="w-12 h-12 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center font-bold" aria-hidden="true">S</div>
           </div>
           <div className="w-24 h-32 bg-gradient-to-b from-blue-100 to-blue-50 rounded-[2.5rem] shadow-2xl border border-white z-10 flex flex-col items-center justify-center relative">
             <div className="w-14 h-14 rounded-full bg-gradient-to-tr from-blue-400 to-blue-500 flex items-center justify-center shadow-inner mb-2">
@@ -30,7 +30,7 @@ export default function Referral() {
             <span className="text-xs font-bold text-blue-900">Smile</span>
           </div>
           <div className="w-20 h-24 bg-white/50 backdrop-blur-md rounded-[2rem] shadow-xl border border-white/50 transform rotate-12 translate-y-4 flex items-center justify-center relative">
-            <img src="https://i.pravatar.cc/150?img=5" className="w-12 h-12 rounded-full opacity-70" alt="User" />
+            <div className="w-12 h-12 rounded-full bg-green-100 text-green-700 flex items-center justify-center font-bold" aria-hidden="true">✓</div>
             <div className="absolute -bottom-2 -right-2 bg-white rounded-full p-1 shadow-md">
                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="3" stroke="green" className="w-4 h-4"><path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>
             </div>

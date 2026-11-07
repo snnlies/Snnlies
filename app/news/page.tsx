@@ -1,3 +1,10 @@
+import type { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "News",
+  description: "Announcements, partnerships, and milestones from Snnlies.",
+  alternates: { canonical: "/news" },
+};
+
 export default function News() {
   const news = [
     { date: "Oct 25, 2026", title: "Snnlies Partners with Top Gaming Networks", desc: "We are excited to announce our new partnership to bring AI automation to over 50,000 gaming communities.", tag: "Partnership", color: "bg-purple-100 text-purple-700 border-purple-200" },
