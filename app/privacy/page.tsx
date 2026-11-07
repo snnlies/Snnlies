@@ -21,7 +21,7 @@ export default function Privacy() {
         <h2 className="text-2xl font-semibold text-black mt-8 mb-4">4. Data Retention &amp; Deletion</h2>
         <p>Configuration data is kept while your server uses Snnlies. Remove the bot from your server and contact us through the Support page to request deletion of stored configuration and account data.</p>
         <h2 className="text-2xl font-semibold text-black mt-8 mb-4">5. Contact</h2>
-        <p>Questions about this policy? Reach the team through our <a href="/support" className="underline font-semibold text-black">Support page</a>.</p>
+        <p>Questions about this policy? Reach the team through our <a href="/support" className="underline font-semibold text-black">Support page</a> or by email at <a href="mailto:snnlies@outlook.com" className="underline font-semibold text-black">snnlies@outlook.com</a>.</p>
       </div>
     </div>
   );

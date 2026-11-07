@@ -1,3 +1,4 @@
+Contact: mailto:snnlies@outlook.com
 Contact: https://snnlies.vercel.app/support
 Expires: 2027-11-07T00:00:00.000Z
 Canonical: https://snnlies.vercel.app/.well-known/security.txt

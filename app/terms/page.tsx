@@ -20,7 +20,7 @@ export default function Terms() {
         <h2 className="text-2xl font-semibold text-black mt-8 mb-4">4. Changes to These Terms</h2>
         <p>We may update these terms as the service evolves. The current version will always be posted on this page with its update date, and continued use of Snnlies after a change means you accept the updated terms.</p>
         <h2 className="text-2xl font-semibold text-black mt-8 mb-4">5. Contact</h2>
-        <p>Questions about these terms? Reach the team through our <a href="/support" className="underline font-semibold text-black">Support page</a>.</p>
+        <p>Questions about these terms? Reach the team through our <a href="/support" className="underline font-semibold text-black">Support page</a> or by email at <a href="mailto:snnlies@outlook.com" className="underline font-semibold text-black">snnlies@outlook.com</a>.</p>
       </div>
     </div>
   );

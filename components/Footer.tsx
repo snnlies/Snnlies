@@ -22,6 +22,7 @@ export default function Footer() {
             <Link href="/community" onClick={playClickSound} className="text-black hover:text-neutral-500 transition-colors duration-500 text-sm font-medium">Community Hub</Link>
             <Link href="/status" onClick={playClickSound} className="text-black hover:text-neutral-500 transition-colors duration-500 text-sm font-medium">System Status</Link>
             <Link href="/support" onClick={playClickSound} className="text-black hover:text-neutral-500 transition-colors duration-500 text-sm font-medium">Help Center</Link>
+            <a href="mailto:snnlies@outlook.com" onClick={playClickSound} className="text-black hover:text-neutral-500 transition-colors duration-500 text-sm font-medium">Email Support</a>
           </div>
 
           <div className="flex flex-col gap-4">
