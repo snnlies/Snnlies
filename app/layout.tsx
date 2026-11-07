@@ -15,7 +15,13 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://snnlies.vercel.app'),
   title: "Snnlies® | The #1 Best Discord Automation",
   description: "Build massive servers with AI moderation and instant templates.",
-  // Social Media Sharing Banner
+  // Browser tab logo (logo.png in public/, same image as app/icon.png)
+  icons: {
+    icon: "/logo.png",
+    shortcut: "/logo.png",
+    apple: "/logo.png",
+  },
+  // Social Media Sharing Banner (banner.png in public/)
   openGraph: {
     title: "Snnlies® | The #1 Best Discord Automation",
     description: "Build massive servers with AI moderation and instant templates.",
@@ -23,9 +29,9 @@ export const metadata: Metadata = {
     siteName: "Snnlies®",
     images: [
       {
-        url: "/banner.png", // Path to your new banner
-        width: 1200,
-        height: 630,
+        url: "/banner.png",
+        width: 735,
+        height: 245,
         alt: "Snnlies Banner",
       },
     ],
@@ -36,7 +42,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Snnlies® | The #1 Best Discord Automation",
     description: "Build massive servers with AI moderation and instant templates.",
-    images: ["/banner.png"], // Path to your new banner
+    images: ["/banner.png"],
   },
 };
 
